@@ -1,6 +1,7 @@
 @import url("home.css");
 @import url("modal.css");
 @import url("about.css");
+@import url("service.css");
 @import url("gallery.css");
 @import url("membership.css");
 
@@ -11,6 +12,8 @@
   --color-primary-darker: #007a7e;
   --color-nav: rgba(255, 255, 255, 0.95);
 }
+
+/* #ECECEC */
 
 * {
   box-sizing: border-box;

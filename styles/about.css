@@ -2,6 +2,7 @@
   display: grid;
   padding: 1rem;
   gap: 3rem;
+  padding-bottom: 4rem;
 }
 
 .about_img {

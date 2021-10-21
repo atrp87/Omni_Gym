@@ -25,17 +25,19 @@ console.log(aboutNav);
 
 
 const handleNavScroll = function (e) {
-  aboutNav.forEach((el) => {
-    el.addEventListener('click', () => {
-      if (el.innerHTML === "About") {
+
+  aboutNav.forEach(function (element, index) {
+    element.addEventListener("click", function () {
+      if (index === 0) {
+        console.log(element, index);
         aboutSection.scrollIntoView({ behavior: 'smooth' });
-      } else if (el.innerHTML === "Membership") {
-        console.log('yo');
-      } else {
-        console.log('y2');
+      } else if (index === 1) {
+        console.log('1');
+      } else if (index === 2) {
+        console.log('2');
       }
     });
-  })
+  });
 
 };
 
@@ -49,7 +51,7 @@ navMenu.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 })
 
-// * Mobile Menu Blur
+// * Nav & Mobile Menu Blur
 const handleHover = function (e) {
   if (e.target.classList.contains('nav-links')) {
     const link = e.target;
