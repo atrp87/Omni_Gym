@@ -48,9 +48,14 @@ p {
 
 @media (max-width: 900px) {
   .col_switch {
-    order: 2;
-  }
-  .about_img {
     order: 1;
   }
+  .about_img {
+    order: 2;
+  }
+}
+
+.left-img {
+  display: flex;
+  justify-content: center;
 }

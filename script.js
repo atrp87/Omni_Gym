@@ -19,31 +19,17 @@ const modal = document.getElementById('email-modal');
 const openModalBtn = document.querySelector('.nav-links-btn');
 const closeModalBtn = document.querySelector('.close-btn');
 
-const aboutNav = document.querySelectorAll('.nav-links');
-console.log(aboutNav);
-/// click on target link name and scroll to section
+const navAnchor = document.querySelectorAll('.nav-links');
 
 
-const handleNavScroll = function (e) {
-
-  aboutNav.forEach(function (element, index) {
-    element.addEventListener("click", function () {
-      if (index === 0) {
-        console.log(element, index);
-        aboutSection.scrollIntoView({ behavior: 'smooth' });
-      } else if (index === 1) {
-        console.log('1');
-      } else if (index === 2) {
-        console.log('2');
-      }
-    });
-  });
-
-};
-
-handleNavScroll()
-
-
+// for (const anchor of navAnchor) {
+//   anchor.addEventListener('click', function (event, i) {
+//     const link = i.scrollIntoView({ behavior: 'smooth' });
+//     if (event.target.innerText === 'About') {
+//       console.log(link);
+//     }
+//   })
+// }
 
 // * Mobile Menu Toggle
 navMenu.addEventListener('click', () => {
@@ -77,9 +63,6 @@ footerScrollBtn.addEventListener('click', () => {
   mainPage.scrollIntoView({ behavior: 'smooth' });
 });
 
-// aboutNav.addEventListener('click', () => {
-//   aboutSection.scrollIntoView({ behavior: 'smooth' });
-// });
 
 // * MODAL
 openModalBtn.addEventListener('click', () => {
