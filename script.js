@@ -1,70 +1,116 @@
 'use strict'
 // If the object is not specified, functions in strict mode will
 // return undefined and functions in normal mode will return the global object (window):
-
+// * GENERAL
+const header = document.querySelector('.header');
+const section1 = document.querySelector('#section--1');
+const allSections = document.querySelectorAll('.section');
 // * NAV
 const navbar = document.querySelector('.navbar');
-const navMenu = document.querySelector('#mobile-menu');
-const navLinks = document.querySelector('.nav-menu');
+const navContainer = document.querySelector('.nav_container');
+const mobileMenu = document.querySelector('#mobile_menu');
+const navMenu = document.querySelector('.nav_menu');
+const navLinks = document.querySelectorAll('.nav_links');
 // * SCROLL
-const homeScrollBtn = document.querySelector('.main-btn');
-const aboutSection = document.querySelector('#section--1');
+const headerScrollBtn = document.querySelector('.main_btn');
 const footerScrollBtn = document.querySelector('.footer_btn');
-const mainPage = document.querySelector('.nav-container');
-
-// !select all nav links for node list
-const contactNav = document.querySelector('.footer');
 // * MODAL
-const modal = document.getElementById('email-modal');
-const openModalBtn = document.querySelector('.nav-links-btn');
-const closeModalBtn = document.querySelector('.close-btn');
+const modal = document.getElementById('email_modal');
+const openModalBtn = document.querySelector('.nav_links_btn');
+const closeModalBtn = document.querySelector('.close_btn');
 
-const navAnchor = document.querySelectorAll('.nav-links');
+//// * NAV SCROLL LINKS ////
+
+const links = document.querySelectorAll(".nav_container ul a");
+
+for (const link of links) {
+  link.addEventListener("click", clickHandler);
+}
+
+function clickHandler(e) {
+  e.preventDefault();
+  const href = this.getAttribute("href");
+
+  document.querySelector(href).scrollIntoView({
+    behavior: "smooth"
+  });
+}
 
 
-// for (const anchor of navAnchor) {
-//   anchor.addEventListener('click', function (event, i) {
-//     const link = i.scrollIntoView({ behavior: 'smooth' });
-//     if (event.target.innerText === 'About') {
-//       console.log(link);
-//     }
-//   })
-// }
 
-// * Mobile Menu Toggle
-navMenu.addEventListener('click', () => {
-  navMenu.classList.toggle('is-active');
-  navLinks.classList.toggle('active');
+//// * Mobile Menu Toggle ////
+mobileMenu.addEventListener('click', () => {
+  mobileMenu.classList.toggle('is-active');
+  navMenu.classList.toggle('active');
 })
 
-// * Nav & Mobile Menu Blur
+//// * Nav & Mobile Menu Blur ////
 const handleHover = function (e) {
-  if (e.target.classList.contains('nav-links')) {
+  if (e.target.classList.contains('nav_links')) {
     const link = e.target;
-    const siblings = link.closest('.navbar').querySelectorAll('.nav-links');
-    const logo = link.closest('.navbar').querySelector('#navbar-logo');
+    const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
+    const logo = link.closest('.navbar').querySelector('#navbar_logo');
     siblings.forEach(el => {
       if (el !== link) el.style.opacity = this;
     })
     logo.style.opacity = this;
   };
 }
-
 navbar.addEventListener('mouseover', handleHover.bind(0.5));
 navbar.addEventListener('mouseout', handleHover.bind(1));
 
-// * Scroll
+
+//// * STICKY NAV ////
+// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+// ? REVIEW Intersection Observer API **
+const stickyNav = function (entries) {
+  const entry = entries[0];
+  if (!entry.isIntersecting) {
+    navContainer.classList.add('sticky');
+  } else {
+    navContainer.classList.remove('sticky');
+  }
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null, // Entire view port
+  threshold: 0, // 0% of the header reveal nav
+  // Inspect - intersectionRatio & isIntersecting
+});
+headerObserver.observe(header);
+
+//// * SECTION REVEAL ////
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (entry.isIntersecting) {
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+  }
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
+
+//// * SCROLL VIEW ////
 // ! CREATE FUNCTION ( DRY )
-homeScrollBtn.addEventListener('click', () => {
-  aboutSection.scrollIntoView({ behavior: 'smooth' });
+headerScrollBtn.addEventListener('click', () => {
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 footerScrollBtn.addEventListener('click', () => {
-  mainPage.scrollIntoView({ behavior: 'smooth' });
+  header.scrollIntoView({ behavior: 'smooth' });
 });
 
-
-// * MODAL
+//// * MODAL ////
 openModalBtn.addEventListener('click', () => {
   modal.style.display = 'block';
 });
@@ -77,7 +123,7 @@ window.addEventListener('click', function (e) {
   e.target === modal ? modal.style.display = 'none' : null
 });
 
-// * FORM 
+//// * FORM ////
 
 const form = document.getElementById('form');
 const name = document.getElementById('name');
@@ -86,7 +132,7 @@ const message = document.getElementById('message');
 
 const showError = (input, msg) => {
   const formVal = input.parentElement;
-  formVal.className = 'form-validation error';
+  formVal.className = 'form_validation error';
 
   const errorMsg = formVal.querySelector('p');
   errorMsg.innerText = msg;

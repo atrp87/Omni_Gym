@@ -2,9 +2,9 @@
   padding: 0 1rem 4rem 1rem;
 }
 
-.service-row {
+.service_row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 30px;
 }
 
@@ -38,4 +38,10 @@
 .service:hover i,
 .service:hover p {
   color: #fff;
+}
+
+@media screen and (min-width: 970px) and (max-width: 1301px) {
+  .service-row {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 }

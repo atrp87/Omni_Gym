@@ -47,15 +47,25 @@ p {
 }
 
 @media (max-width: 900px) {
-  .col_switch {
-    order: 1;
-  }
-  .about_img {
+  .col__switch {
     order: 2;
+  }
+  .img__switch {
+    order: 1;
   }
 }
 
-.left-img {
+.left_img {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .column {
+    text-align: center;
+  }
+
+  .column img {
+    justify-self: center;
+  }
 }

@@ -4,7 +4,6 @@
 @import url("service.css");
 @import url("gallery.css");
 @import url("membership.css");
-
 @import url("contact.css");
 
 :root {
@@ -12,8 +11,6 @@
   --color-primary-darker: #007a7e;
   --color-nav: rgba(255, 255, 255, 0.95);
 }
-
-/* #ECECEC */
 
 * {
   box-sizing: border-box;
@@ -35,14 +32,20 @@ p {
 /* ! GENERAL STYLES */
 .section {
   border-top: 1px solid #ddd;
+  transition: transform 1s, opacity 1s;
 }
 
-.section__title {
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.section_title {
   max-width: 80rem;
   margin: 8rem 8rem 6rem;
 }
 
-.section__description {
+.section_description {
   font-size: 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -50,7 +53,7 @@ p {
   margin-bottom: 1rem;
 }
 
-.section__header {
+.section_header {
   font-size: 2rem;
   line-height: 1.3;
   font-weight: 500;
@@ -59,29 +62,30 @@ p {
 }
 
 @media screen and (max-width: 480px) {
-  .section__title {
+  .section_title {
     margin: 0;
     text-align: center;
+    margin: 4rem 0 2rem 0;
   }
 
-  .section__description {
+  .section_description {
     font-size: 1.3rem;
   }
 
-  .section__header {
+  .section_header {
     font-size: 1rem;
   }
 }
 
 /* ! NAVBAR   */
-#navbar-logo {
+#navbar_logo {
   width: 150px;
   justify-self: start;
   margin-left: 20px;
   white-space: nowrap;
 }
 
-.nav-container {
+.nav_container {
   width: 100%;
   background-color: var(--color-nav);
 }
@@ -96,7 +100,7 @@ p {
   margin: 0 auto;
 }
 
-.nav-menu {
+.nav_menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
   text-align: center;
@@ -105,24 +109,30 @@ p {
   list-style-type: none;
 }
 
-.nav-links {
+.nav_links {
   color: #444;
   text-decoration: none;
 }
 
-.nav-links-btn {
+.nav_container.sticky {
+  position: fixed;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav_links_btn {
   background-color: var(--color-primary);
   padding: 6px 16px;
   border-radius: 8px;
   color: #fff;
 }
 
-.nav-links-btn:hover {
+.nav_links_btn:hover {
   background-color: var(--color-primary-darker);
   transition: all 0.3s ease-out;
 }
 
-.menu-toggle .bar {
+.menu_toggle .bar {
   width: 25px;
   height: 3px;
   margin: 5px auto;
@@ -133,11 +143,11 @@ p {
 /* * MOBILE */
 
 @media screen and (max-width: 768px) {
-  .nav-container {
+  .nav_container {
     position: relative;
   }
 
-  .nav-menu {
+  .nav_menu {
     display: grid;
     grid-template-columns: auto;
     background: var(--color-nav);
@@ -150,24 +160,24 @@ p {
     transition: all 0.5s ease;
   }
 
-  #navbar-logo {
+  #navbar_logo {
     margin-left: 20px;
   }
 
-  .nav-menu.active {
+  .nav_menu.active {
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
   }
 
-  .nav-links {
+  .nav_links {
     text-align: center;
     line-height: 60px;
     width: 100%;
     display: table;
   }
 
-  .nav-links:hover {
+  .nav_links:hover {
     background-color: aliceblue;
     transition: all 0.4s ease-out;
   }
@@ -176,7 +186,7 @@ p {
     width: 100%;
   }
 
-  .nav-links-btn {
+  .nav_links_btn {
     border: none;
     padding: 0;
     border-radius: 0;
@@ -193,38 +203,32 @@ p {
     transition: all 0.4s ease-out;
   }
 
-  #mobile-menu {
+  #mobile_menu {
     position: absolute;
     top: 20%;
     right: 5%;
   }
 
-  .menu-toggle .bar {
+  .menu_toggle .bar {
     display: block;
     color: #444;
     transform: translate(5%, 20%);
     cursor: pointer;
   }
 
-  .men-toggle:hover {
+  .men_toggle:hover {
     cursor: pointer;
   }
 
-  #mobile-menu.is-active .bar:nth-child(2) {
+  #mobile_menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
 
-  #mobile-menu.is-active .bar:nth-child(1) {
+  #mobile_menu.is-active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
 
-  #mobile-menu.is-active .bar:nth-child(3) {
+  #mobile_menu.is-active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
-
-/* @media screen and (min-width: 640px) {
-  .flex-container {
-    display: flex;
-  }
-} */

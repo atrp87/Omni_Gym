@@ -15,7 +15,7 @@
   display: none;
 }
 
-.modal-content {
+.modal_content {
   background: #f4f4f4;
   margin: 10% auto;
   width: 60%;
@@ -27,21 +27,21 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.close-btn {
+.close_btn {
   position: absolute;
   top: 2%;
   right: 3%;
   font-size: 1.5rem;
-  z-index: 1;
+  z-index: 999;
   cursor: pointer;
 }
 
-.modal-content-left {
+.modal_content_left {
   border-radius: 0 3px 3px 0;
   position: relative;
 }
 
-#modal-img {
+#modal_img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -50,12 +50,12 @@
   transform: translate(-50%, -50%);
 }
 
-.modal-content-right {
+.modal_content_right {
   border-radius: 0 3px 3px 0;
   position: relative;
 }
 
-.modal-form {
+.modal_form {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,19 +68,19 @@
   align-items: center;
 }
 
-.modal-form {
+.modal_form {
   font-size: 0.4rem;
   align-items: start;
   width: 80%;
   margin-bottom: 1rem;
 }
 
-.form-validation {
+.form_validation {
   margin: 0.5rem;
   width: 80%;
 }
 
-.form-validation.error {
+.form_validation.error {
   margin-bottom: 1.5rem;
   position: relative;
   border: 1px solid var(--error-color);
@@ -88,14 +88,14 @@
   display: none;
 }
 
-.form-validation-valid {
+.form_validation_valid {
   margin-bottom: 0.5rem;
   position: relative;
   border: 1px solid var(--valid-color);
   border-radius: 2px;
 }
 
-.form-validation p {
+.form_validation p {
   font-size: 0.7rem;
   margin-top: 0.5rem;
   color: var(--error-color);
@@ -104,11 +104,11 @@
   display: none;
 }
 
-.form-validation.error p {
+.form_validation.error p {
   display: block;
 }
 
-.modal-input {
+.modal_input {
   display: block;
   padding-left: 0.5rem;
   outline: none;
@@ -119,11 +119,11 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-.modal-input::placeholder {
+.modal_input::placeholder {
   color: #b1b1b1;
 }
 
-.modal-input-btn {
+.modal_input_btn {
   width: 80%;
   height: 2rem;
   border-radius: 2px;
@@ -135,13 +135,13 @@
   margin-left: 0.5rem;
 }
 
-.modal-input-btn:hover {
+.modal_input_btn:hover {
   cursor: pointer;
   background-color: var(--color-primary-darker);
   transition: all 0.4s ease-out;
 }
 
-.modal-input-login {
+.modal_input_login {
   margin: 0.5rem;
   font-size: 0.8rem;
   margin-top: 1rem;
@@ -151,11 +151,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .modal-content-left {
+  .modal_content_left {
     display: none;
   }
 
-  .modal-content {
+  .modal_content {
     grid-template-columns: auto;
     margin: 15% auto;
     width: 70%;
@@ -164,7 +164,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .modal-content {
+  .modal_content {
     margin: 20% auto;
     width: 90%;
     height: 80%;
