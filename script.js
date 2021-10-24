@@ -19,49 +19,6 @@ const modal = document.getElementById('email_modal');
 const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
 
-//// * NAV SCROLL LINKS ////
-
-
-for (const link of navLinks) {
-  link.addEventListener('click', function (event) {
-    if (event.target.innerText === 'About') {
-      console.log('yes');
-    }
-  })
-}
-
-
-// const handleHover = function (e) {
-//   if (e.target.classList.contains('nav_links')) {
-//     const link = e.target;
-//     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
-//     const logo = link.closest('.navbar').querySelector('#navbar_logo');
-//     siblings.forEach(el => {
-//       if (el !== link) el.style.opacity = this;
-//     })
-//     logo.style.opacity = this;
-//   };
-// }
-// navbar.addEventListener('mouseover', handleHover.bind(0.5));
-// navbar.addEventListener('mouseout', handleHover.bind(1));
-
-
-// const links = document.querySelectorAll(".nav_container ul a");
-
-// for (const link of links) {
-//   link.addEventListener("click", clickHandler);
-// }
-
-// function clickHandler(e) {
-//   e.preventDefault();
-//   const href = this.getAttribute("href");
-
-//   document.querySelector(href).scrollIntoView({
-//     behavior: "smooth"
-//   });
-// }
-
-
 
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
@@ -105,7 +62,6 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 //// * SECTION REVEAL ////
-
 const revealSection = function (entries, observer) {
   const [entry] = entries;
 
@@ -126,7 +82,6 @@ allSections.forEach(function (section) {
 });
 
 //// * SCROLL VIEW ////
-// ! CREATE FUNCTION ( DRY )
 headerScrollBtn.addEventListener('click', () => {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
@@ -134,6 +89,16 @@ headerScrollBtn.addEventListener('click', () => {
 footerScrollBtn.addEventListener('click', () => {
   header.scrollIntoView({ behavior: 'smooth' });
 });
+
+//// * NAV SCROLL LINKS ////
+//// ? fix error on last ele in node list ( sign up) ///
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault()
+    const linkID = document.getElementById(link.getAttribute('data-link'));
+    linkID.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+})
 
 //// * MODAL ////
 openModalBtn.addEventListener('click', () => {
