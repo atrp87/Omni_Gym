@@ -21,20 +21,45 @@ const closeModalBtn = document.querySelector('.close_btn');
 
 //// * NAV SCROLL LINKS ////
 
-const links = document.querySelectorAll(".nav_container ul a");
 
-for (const link of links) {
-  link.addEventListener("click", clickHandler);
+for (const link of navLinks) {
+  link.addEventListener('click', function (event) {
+    if (event.target.innerText === 'About') {
+      console.log('yes');
+    }
+  })
 }
 
-function clickHandler(e) {
-  e.preventDefault();
-  const href = this.getAttribute("href");
 
-  document.querySelector(href).scrollIntoView({
-    behavior: "smooth"
-  });
-}
+// const handleHover = function (e) {
+//   if (e.target.classList.contains('nav_links')) {
+//     const link = e.target;
+//     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
+//     const logo = link.closest('.navbar').querySelector('#navbar_logo');
+//     siblings.forEach(el => {
+//       if (el !== link) el.style.opacity = this;
+//     })
+//     logo.style.opacity = this;
+//   };
+// }
+// navbar.addEventListener('mouseover', handleHover.bind(0.5));
+// navbar.addEventListener('mouseout', handleHover.bind(1));
+
+
+// const links = document.querySelectorAll(".nav_container ul a");
+
+// for (const link of links) {
+//   link.addEventListener("click", clickHandler);
+// }
+
+// function clickHandler(e) {
+//   e.preventDefault();
+//   const href = this.getAttribute("href");
+
+//   document.querySelector(href).scrollIntoView({
+//     behavior: "smooth"
+//   });
+// }
 
 
 

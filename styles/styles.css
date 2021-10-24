@@ -23,6 +23,7 @@ body {
   background-color: #f3f3f3;
   font-weight: 300;
   color: #444;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -88,6 +89,7 @@ p {
 .nav_container {
   width: 100%;
   background-color: var(--color-nav);
+  position: relative;
 }
 
 .navbar {
