@@ -10,6 +10,8 @@ footer > div {
 #map {
   display: flex;
   justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .contact_wrapper {
@@ -108,4 +110,18 @@ footer > div {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+footer h2 {
+  padding: 4rem;
+}
+
+@media screen and (max-width: 443px) {
+  .contact_container {
+    flex-direction: column;
+  }
+
+  .item_2 {
+    align-self: auto;
+  }
 }
