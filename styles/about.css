@@ -10,6 +10,10 @@
   object-fit: contain;
 }
 
+/* .lazy-img {
+  filter: blur(20px);
+} */
+
 .about_feature {
   align-self: center;
   justify-self: center;

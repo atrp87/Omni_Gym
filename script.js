@@ -45,7 +45,7 @@ navbar.addEventListener('mouseout', handleHover.bind(1));
 //// * STICKY NAV ////
 // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 // ? REVIEW Intersection Observer API **
-const stickyNav = function (entries) {
+const stickyNav = (entries) => {
   const entry = entries[0];
   if (!entry.isIntersecting) {
     navContainer.classList.add('sticky');
@@ -76,7 +76,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
   threshold: 0.15,
 });
 
-allSections.forEach(function (section) {
+allSections.forEach((section) => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
@@ -98,10 +98,38 @@ navLinks.forEach(link => {
     const linkID = document.getElementById(link.getAttribute('data-link'));
     linkID.scrollIntoView({ behavior: 'smooth', block: 'start' })
   })
-})
+});
+
+
+//// * LAZY IMAGES ////
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
 
 //// * MODAL ////
-openModalBtn.addEventListener('click', () => {
+openModalBtn.addEventListener('click', (e) => {
+  e.preventDefault()
   modal.style.display = 'block';
 });
 
@@ -109,7 +137,7 @@ closeModalBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-window.addEventListener('click', function (e) {
+window.addEventListener('click', (e) => {
   e.target === modal ? modal.style.display = 'none' : null
 });
 
