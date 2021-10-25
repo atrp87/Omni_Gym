@@ -23,7 +23,7 @@
 
 
 ## Screenshots
-![Omni Gym](./readme_im.png)
+![Omni Gym](./images/README-IMG.png)
 
 
 ## Contact
