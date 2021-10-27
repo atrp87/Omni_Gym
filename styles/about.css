@@ -38,6 +38,8 @@ p {
   grid-gap: 1rem;
 }
 
+/* * IMAGE GRID  */
+
 @media (min-width: 600px) {
   .column {
     grid-template-columns: repeat(1, 1fr);
@@ -55,7 +57,7 @@ p {
     order: 2;
   }
   .img__switch {
-    order: 1;
+    order: 3;
   }
 }
 
@@ -64,7 +66,7 @@ p {
   justify-content: center;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 902px) {
   .column {
     text-align: center;
   }

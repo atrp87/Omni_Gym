@@ -90,13 +90,18 @@ footerScrollBtn.addEventListener('click', () => {
   header.scrollIntoView({ behavior: 'smooth' });
 });
 
+
 //// * NAV SCROLL LINKS ////
 //// ? fix error on last ele in node list ( sign up) ///
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault()
+    // Close mobile nav after section clicked
+    navMenu.classList.toggle('active');
+    // return burger bars from cross
+    mobileMenu.classList.toggle('is-active');
     const linkID = document.getElementById(link.getAttribute('data-link'));
-    linkID.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
 });
 
