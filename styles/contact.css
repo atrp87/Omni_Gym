@@ -1,6 +1,6 @@
 footer {
   background-color: #37383d;
-  color: #fff;
+  color: var(--color-white);
 }
 
 footer > div {
@@ -13,6 +13,11 @@ footer > div {
   height: 100%;
   width: 100%;
 }
+
+/* iframe {
+  width: 80%;
+  height: 50%;
+} */
 
 .contact_wrapper {
   text-align: center;
@@ -35,7 +40,7 @@ footer > div {
 
 .footer p {
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--color-white);
   padding: 1rem;
 }
 
@@ -94,7 +99,7 @@ footer > div {
 
 .fa-chevron-up {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .cheveron_up {

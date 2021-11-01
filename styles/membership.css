@@ -5,19 +5,19 @@
 .pricing {
   display: flex;
   justify-content: space-between;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: auto;
 }
 .pricing-plan {
   flex: 1;
-  background-color: #fff;
+  background-color: var(--color-white);
   margin: 15px 8px;
   padding: 30px;
   transition: width 0.4s ease-in-out, flex 0.4s ease-in-out;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .pricing {
     display: block;
   }
@@ -67,6 +67,6 @@
   font-weight: bold;
 }
 .pricing-plan a:hover {
-  background-color: #fff;
+  background-color: var(--color-white);
   color: inherit;
 }

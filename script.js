@@ -56,7 +56,7 @@ const stickyNav = (entries) => {
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null, // Entire view port
-  threshold: 0, // 0% of the header reveal nav
+  threshold: 0.1, // 0% of the header reveal nav
   // Inspect - intersectionRatio & isIntersecting
 });
 headerObserver.observe(header);
@@ -64,7 +64,7 @@ headerObserver.observe(header);
 //// * SECTION REVEAL ////
 const revealSection = function (entries, observer) {
   const [entry] = entries;
-
+  console.log(entry);
   if (entry.isIntersecting) {
     entry.target.classList.remove('section--hidden');
     observer.unobserve(entry.target);
@@ -73,7 +73,7 @@ const revealSection = function (entries, observer) {
 
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: 0.15,
+  threshold: 0.15, // ! FIND A GOOD THRESHOLD FOR ABOUT ENTRY AND NAVBAR HEADER OVERLAP
 });
 
 allSections.forEach((section) => {
@@ -101,6 +101,7 @@ navLinks.forEach(link => {
     // return burger bars from cross
     mobileMenu.classList.toggle('is-active');
     const linkID = document.getElementById(link.getAttribute('data-link'));
+    console.log(linkID)
     linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
 });
