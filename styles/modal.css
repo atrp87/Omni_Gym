@@ -16,9 +16,10 @@
 }
 
 .modal_content {
-  background: #f4f4f4;
+  background: #f3f3f3;
   margin: 10% auto;
   width: 60%;
+  max-width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 3px;
@@ -60,15 +61,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.modal_form h1 {
+  font-size: 1rem;
+  text-align: center;
+  width: 80%;
+}
+
 .modal_form {
+  position: absolute;
   font-size: 0.4rem;
   align-items: start;
   width: 80%;
@@ -76,7 +84,7 @@
 }
 
 .form_validation {
-  margin: 0.5rem;
+  margin: 0.4rem;
   width: 80%;
 }
 
@@ -85,10 +93,9 @@
   position: relative;
   border: 1px solid var(--error-color);
   border-radius: 2px;
-  display: none;
 }
 
-.form_validation_valid {
+.form_validation.valid {
   margin-bottom: 0.5rem;
   position: relative;
   border: 1px solid var(--valid-color);
@@ -119,7 +126,20 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-.modal_input::placeholder {
+.modal_textarea {
+  display: block;
+  padding-left: 0.5rem;
+  outline: none;
+  border-radius: 2px;
+  resize: none;
+  font-family: inherit;
+  border: none;
+  height: 5rem;
+  width: 100%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.modal_input::placeholder .modal_textarea::placeholder {
   color: #b1b1b1;
 }
 
@@ -141,13 +161,19 @@
   transition: all 0.4s ease-out;
 }
 
-.modal_input_login {
+.modal_input_social {
   margin: 0.5rem;
   font-size: 0.8rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   color: #666;
   width: 80%;
   text-align: center;
+}
+
+.modal_input_social a {
+  text-decoration: none;
+  color: var(--color-primary-darker);
+  font-weight: 500;
 }
 
 @media screen and (max-width: 768px) {

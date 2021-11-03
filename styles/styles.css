@@ -89,10 +89,16 @@ p {
   white-space: nowrap;
 }
 
+/* Stops content jumping on nav fixed reveal */
+.nav-wrapper {
+  height: 80px;
+}
+
 .nav_container {
   width: 100%;
   background-color: var(--color-sticky-nav);
   position: relative;
+  height: 80px;
 }
 
 .navbar {

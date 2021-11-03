@@ -35,6 +35,7 @@
 <main>
 <!-- ! NAVABR -->
   <header class="header">
+    <div class="nav-wrapper">
     <div class="nav_container">
       <nav class="navbar">
         <h1 id="navbar_logo">OMNI GYM</h1>
@@ -52,6 +53,7 @@
         </ul>
       </nav>
     </div>
+    </div>
   <!-- ! NAVBAR END -->
   <!-- ! HOME -->
     <div class="main">
@@ -59,7 +61,7 @@
         <div class="main_content">
           <h1>Welcome to Omni gym</h1>
           <p>An inclusive gym in the Scottish borders</p>
-          <button class="main_btn">Learn more &DownArrow;</button>
+          <button class="main_btn" aria-label="Scroll down">Learn more &DownArrow;</button>
         </div>
         <div class="main_img_container">
           <img id="main_img" src="./images/logo.png" alt="Omni Gym Logo">
@@ -189,7 +191,7 @@
       <li>Unlimited entry into classes</li>
       <li>Monthly gym Membership</li>
     </ul>
-    <a href="#">Sign up</a>
+    <li><a href="#" class="nav_links_btn">Sign Up</a></li>
   </div>
   <div class="pricing-plan">
     <h2>GOLD</h2>
@@ -199,7 +201,7 @@
       <li>Unlimited entry into classes</li>
       <li>Monthly gym Membership</li>
     </ul>
-    <a href="#">Sign up</a>
+    <a href="#" class="nav_links_btn">Sign up</a>
   </div>      
   <div class="pricing-plan">
     <h2>SILVER</h2>
@@ -209,7 +211,7 @@
       <li>Unlimited entry into classes</li>
       <li>Monthly gym Membership</li>
     </ul>
-    <a href="#">Sign up</a>
+    <a href="#" class="nav_links_btn">Sign up</a>
   </div>
   <div class="pricing-plan">
     <h2>BRONZE</h2>
@@ -219,7 +221,7 @@
       <li>Monthly gym Membership</li>
       <li></li>
     </ul>
-    <a href="#">Sign up</a>
+    <a href="#" class="nav_links_btn">Sign up</a>
   </div>
 </div>
 
@@ -232,7 +234,7 @@
       <h3>Where to find us.</h3>
     </div>
     <div id='map'>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.5157104906843!2d-3.1708541839143773!3d55.64523870775008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887ed6a1681af31%3A0x67820f1a74ab7621!2sOmni-fitness!5e0!3m2!1sen!2suk!4v1633187542993!5m2!1sen!2suk" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe title="map of omni gym's location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.5157104906843!2d-3.1708541839143773!3d55.64523870775008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887ed6a1681af31%3A0x67820f1a74ab7621!2sOmni-fitness!5e0!3m2!1sen!2suk!4v1633187542993!5m2!1sen!2suk" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="contact_wrapper">
       <div class="contact_container">
@@ -315,11 +317,11 @@
             <p>Error Message</p>
           </div>
           <div class="form_validation">
-            <textarea name="message" class="modal_input" id="message" cols="30" rows="5"></textarea>
+            <textarea name="message" class="modal_textarea" id="message" placeholder="Your message..." cols="20" rows="5"></textarea>
             <p>Error Message</p>
           </div>
           <input type="submit" class="modal_input_btn" value="Send">
-          <span class="modal_input_login">
+          <span class="modal_input_social">
             On social media? Follow us on
             <a href="https://www.facebook.com/OmniGym1/" target="_blank">Facebook</a>
             &
