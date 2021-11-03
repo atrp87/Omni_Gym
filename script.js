@@ -24,13 +24,6 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
 
-
-const test = (e) => {
-  document.addEventListener('click', (e) => {
-    console.log(e.target);
-  })
-}
-test()
 //// * REFRESH LANDING PAGE TO ////
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);

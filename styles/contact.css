@@ -14,10 +14,10 @@ footer > div {
   width: 100%;
 }
 
-/* iframe {
-  width: 80%;
-  height: 50%;
-} */
+iframe {
+  max-width: 600px;
+  height: 300px;
+}
 
 .contact_wrapper {
   text-align: center;
@@ -128,5 +128,11 @@ footer h2 {
 
   .item_2 {
     align-self: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  iframe {
+    width: 80%;
   }
 }
