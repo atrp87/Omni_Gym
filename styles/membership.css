@@ -3,24 +3,27 @@
 }
 
 .pricing {
+  min-height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
   max-width: 1600px;
   margin: auto;
+  gap: 15px;
+  justify-content: center;
+  padding-bottom: 4rem;
 }
+
 .pricing-plan {
-  flex: 1;
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
   background-color: var(--color-white);
-  margin: 15px 8px;
+  width: 70%;
   padding: 30px;
   transition: width 0.4s ease-in-out, flex 0.4s ease-in-out;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
-}
-
-@media (max-width: 900px) {
-  .pricing {
-    display: block;
-  }
 }
 
 .pricing-plan h2 {
@@ -30,18 +33,22 @@
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
+
 .pricing-plan p {
   margin-top: 0;
 }
+
 .pricing-plan p span {
   font-size: 33px;
 }
+
 .pricing-plan ul {
   margin: 0 0 35px;
   padding-left: 16px;
   list-style: none;
   line-height: 1.8;
 }
+
 .pricing-plan ul li::before {
   content: "•";
   color: #00999d;
@@ -53,6 +60,7 @@
   font-size: 26px;
   line-height: 0;
 }
+
 .pricing-plan a {
   text-decoration: none;
   color: #fff;
@@ -66,7 +74,18 @@
   font-size: 15px;
   font-weight: bold;
 }
+
 .pricing-plan a:hover {
   background-color: var(--color-white);
   color: inherit;
+}
+
+@media (max-width: 900px) {
+  .pricing {
+    flex-direction: column;
+  }
+  .pricing-plan {
+    margin: 0 auto;
+    width: 95%;
+  }
 }

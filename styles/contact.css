@@ -8,15 +8,14 @@ footer > div {
 }
 
 #map {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  margin: 0 auto;
+  overflow: none;
 }
 
 iframe {
   max-width: 600px;
   height: 300px;
+  overflow: none;
 }
 
 .contact_wrapper {
@@ -36,6 +35,7 @@ iframe {
 
 .footer h3 {
   padding: 1rem 0 0.5rem 0;
+  color: var(--color-white);
 }
 
 .footer p {
@@ -133,6 +133,6 @@ footer h2 {
 
 @media screen and (min-width: 768px) {
   iframe {
-    width: 80%;
+    width: 90%;
   }
 }

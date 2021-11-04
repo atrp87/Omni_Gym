@@ -6,8 +6,8 @@
 
 .service_row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
 
 .service {
@@ -45,5 +45,11 @@
 @media screen and (max-width: 1321px) and (min-width: 700px) {
   .service_row {
     grid-template-columns: repeat(2, minmax(290px, 1fr));
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .service_row {
+    grid-template-columns: 1fr;
   }
 }

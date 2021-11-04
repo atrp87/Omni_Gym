@@ -52,12 +52,18 @@ p {
   }
 }
 
-@media (max-width: 900px) {
-  .col__switch {
-    order: 1;
+@media screen and (max-width: 500px) {
+  .about_container {
+    gap: 2rem;
   }
-  .img__switch {
-    order: 1;
+  .about_feature {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .left_img {
+    order: 2;
   }
 }
 

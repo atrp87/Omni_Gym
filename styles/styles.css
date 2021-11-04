@@ -89,7 +89,7 @@ p {
   white-space: nowrap;
 }
 
-/* Stops content jumping on nav fixed reveal */
+/* Stops content jumping on nav fixed reveal @ section 1*/
 .nav-wrapper {
   height: 80px;
 }
@@ -259,6 +259,7 @@ p {
     justify-self: center;
     width: 90%;
     margin: 0 auto;
+    padding: 6rem 0 3rem;
   }
 
   .section_content {
