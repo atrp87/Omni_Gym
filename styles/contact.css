@@ -9,13 +9,12 @@ footer > div {
 
 #map {
   margin: 0 auto;
-  overflow: none;
 }
 
 iframe {
   max-width: 600px;
   height: 300px;
-  overflow: none;
+  width: 95%;
 }
 
 .contact_wrapper {

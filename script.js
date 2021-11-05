@@ -25,6 +25,9 @@ const email = document.getElementById('email');
 const message = document.getElementById('message');
 
 //// * REFRESH LANDING PAGE TO ////
+
+// ! ON LOAD OPACITY 0 NO TRANSITIONS
+
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }

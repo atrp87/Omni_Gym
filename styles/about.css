@@ -10,6 +10,11 @@
   object-fit: contain;
 }
 
+/* Fix offset image on second col */
+.left_img {
+  margin: 0 auto;
+}
+
 /* .lazy-img {
   filter: blur(20px);
 } */
@@ -32,52 +37,38 @@ p {
 }
 
 .column {
-  max-width: 1200px;
+  max-width: 2400px;
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
 }
 
-/* * IMAGE GRID  */
+.column {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, /* min value */ 2fr /* max value */)
+  );
+  gap: 20px;
+}
 
-@media (min-width: 600px) {
+@media (max-width: 960px) {
   .column {
     grid-template-columns: repeat(1, 1fr);
   }
-}
-
-@media (min-width: 900px) {
-  .column {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .about_container {
-    gap: 2rem;
-  }
-  .about_feature {
-    width: 90%;
-  }
-}
-
-@media (max-width: 900px) {
   .left_img {
     order: 2;
   }
-}
-
-.left_img {
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 902px) {
   .column {
     text-align: center;
   }
 
   .column img {
     justify-self: center;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .about_feature {
+    width: 90%;
   }
 }

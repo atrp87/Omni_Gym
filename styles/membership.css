@@ -5,9 +5,9 @@
 .pricing {
   min-height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   flex-direction: row;
-  max-width: 1600px;
+  max-width: 2400px;
   margin: auto;
   gap: 15px;
   justify-content: center;
@@ -61,6 +61,10 @@
   line-height: 0;
 }
 
+.pricing-plan ul li:last-child() {
+  display: none;
+}
+
 .pricing-plan a {
   text-decoration: none;
   color: #fff;
@@ -80,7 +84,17 @@
   color: inherit;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1800px) {
+  .pricing {
+    flex-wrap: wrap;
+  }
+  .pricing-plan {
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+
+@media (max-width: 1200px) {
   .pricing {
     flex-direction: column;
   }
