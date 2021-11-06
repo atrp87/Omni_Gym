@@ -2,104 +2,139 @@
   background-color: #ececec;
 }
 
-.pricing {
-  min-height: 100%;
-  display: flex;
-  /* flex-wrap: wrap; */
-  flex-direction: row;
-  max-width: 2400px;
-  margin: auto;
-  gap: 15px;
-  justify-content: center;
-  padding-bottom: 4rem;
-}
-
-.pricing-plan {
-  display: flex;
-  flex-basis: calc(50% - 40px);
-  justify-content: center;
-  flex-direction: column;
-  background-color: var(--color-white);
-  width: 70%;
-  padding: 30px;
-  transition: width 0.4s ease-in-out, flex 0.4s ease-in-out;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
-}
-
-.pricing-plan h2 {
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #00999d;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-
-.pricing-plan p {
-  margin-top: 0;
-}
-
-.pricing-plan p span {
-  font-size: 33px;
-}
-
-.pricing-plan ul {
-  margin: 0 0 35px;
-  padding-left: 16px;
-  list-style: none;
-  line-height: 1.8;
-}
-
-.pricing-plan ul li::before {
-  content: "•";
-  color: #00999d;
+.btn {
   display: inline-block;
-  width: 20px;
-  margin-left: -15px;
-  position: relative;
-  top: 4px;
-  font-size: 26px;
-  line-height: 0;
+  background-color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* removes blue square on button press ISO */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.pricing-plan ul li:last-child() {
-  display: none;
+.btn--text {
+  display: inline-block;
+  background: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  border: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.pricing-plan a {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px 20px;
-  text-align: center;
-  background: #00999d;
-  border: 2px solid #00999d;
-  border-radius: 5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: bold;
+p {
+  color: #666;
 }
 
-.pricing-plan a:hover {
-  background-color: var(--color-white);
+.memberships {
+  max-width: 200rem;
+  padding: 0 1rem 4rem 1rem;
+  max-width: 1400px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.memberships_tab_container {
+  display: flex;
+  justify-content: center;
+}
+
+.memberships_tab {
+  margin-right: 2.5rem;
+  transform: translateY(-50%);
+}
+.memberships_tab--4 {
+  margin: 0;
+}
+
+.memberships_tab span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.memberships_tab {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.memberships_tab:hover {
+  background-color: var(--color-sticky-nav);
+  transition: all 0.3s ease-out;
   color: inherit;
 }
 
-@media (max-width: 1800px) {
-  .pricing {
-    flex-wrap: wrap;
+.memberships_tab--active {
+  transform: translateY(-66%);
+  background-color: var(--color-sticky-nav);
+  color: inherit;
+}
+
+.memberships_content {
+  display: none;
+
+  /* JUST PRESENTATIONAL */
+  font-size: 1.2rem;
+}
+
+.memberships_content--active {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.memberships_header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .memberships_tab_container {
+    margin: 0 2px 0 2px;
   }
-  .pricing-plan {
-    margin: 0 auto;
-    width: 50%;
+  .memberships_tab {
+    margin-right: 0.2rem;
+    justify-content: center;
+  }
+  .btn {
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+  }
+  .memberships_tab--4 {
+    margin: 0;
+  }
+  .memberships_tab span {
   }
 }
 
-@media (max-width: 1200px) {
-  .pricing {
-    flex-direction: column;
+@media screen and (max-width: 500px) {
+  .memberships_tab_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 0 2px 0 2px;
   }
-  .pricing-plan {
-    margin: 0 auto;
-    width: 95%;
+  .memberships_tab {
+    transform: none;
+    margin-right: 0.1rem;
+  }
+  .btn {
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .memberships_content {
+    padding-top: 2.5rem;
+    text-align: center;
   }
 }

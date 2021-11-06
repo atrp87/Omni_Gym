@@ -23,6 +23,12 @@ const form = document.getElementById('form');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
+//// * TAB ////
+const tabs = document.querySelectorAll('.memberships_tab');
+const tabsContainer = document.querySelector('.memberships_tab_container');
+const tabsContent = document.querySelectorAll('.memberships_content');
+
+
 
 //// * REFRESH LANDING PAGE TO ////
 
@@ -196,5 +202,23 @@ form.addEventListener('submit', (e) => {
 })
 
 
+//// * MEMBER TAB ////
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.memberships_tab');
 
+  // Guard clause
+  if (!clicked) return;
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('memberships_tab--active'));
+  tabsContent.forEach(c => c.classList.remove('memberships_content--active'));
+
+  // Activate tab
+  clicked.classList.add('memberships_tab--active');
+
+  // Activate content area
+  document
+    .querySelector(`.memberships_content--${clicked.dataset.tab}`)
+    .classList.add('memberships_content--active');
+
+});
 
