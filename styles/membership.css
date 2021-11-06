@@ -1,5 +1,5 @@
-#section--2 {
-  background-color: #ececec;
+#section--3 > .section_header__container {
+  padding-bottom: 9.1rem;
 }
 
 .btn {
@@ -35,7 +35,7 @@ p {
 
 .memberships {
   max-width: 200rem;
-  padding: 0 1rem 4rem 1rem;
+  padding-bottom: 4rem;
   max-width: 1400px;
   background-color: #fff;
   margin: 0 auto;
@@ -112,6 +112,7 @@ p {
     margin: 0;
   }
   .memberships_tab span {
+    margin: 0 0.5rem 0 0.5rem;
   }
 }
 
@@ -130,11 +131,17 @@ p {
     justify-content: center;
     text-align: center;
     border-radius: 0.5rem;
-    padding: 0.8rem 1rem;
+    padding: 0.5rem 0.5rem;
   }
 
   .memberships_content {
     padding-top: 2.5rem;
     text-align: center;
+  }
+  .memberships_tab span {
+    margin-right: 0.5rem;
+  }
+  #section--3 > .section_header__container {
+    padding-bottom: 3rem;
   }
 }

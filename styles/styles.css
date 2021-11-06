@@ -1,10 +1,10 @@
-@import url("home.css");
-@import url("modal.css");
+@import url("header.css");
 @import url("about.css");
 @import url("service.css");
-@import url("gallery.css");
 @import url("membership.css");
-@import url("contact.css");
+@import url("footer.css");
+@import url("modal.css");
+@import url("gallery.css");
 
 :root {
   --color-primary: #00999d;

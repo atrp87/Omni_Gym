@@ -2,6 +2,18 @@ footer {
   background-color: #37383d;
   color: var(--color-white);
 }
+.section_footer__container {
+  display: grid;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 6rem 0 5rem;
+}
+
+.section_footer__container > div {
+  width: 100%;
+  margin: 0;
+}
 
 footer > div {
   text-align: center;
@@ -114,10 +126,6 @@ iframe {
   font: inherit;
   cursor: pointer;
   outline: inherit;
-}
-
-footer h2 {
-  padding: 4rem 0 2rem;
 }
 
 @media screen and (max-width: 443px) {

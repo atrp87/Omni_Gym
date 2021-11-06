@@ -1,6 +1,5 @@
 'use strict'
-// If the object is not specified, functions in strict mode will
-// return undefined and functions in normal mode will return the global object (window):
+
 //// * GENERAL ////
 const header = document.querySelector('.header');
 const section1 = document.querySelector('#section--1');
