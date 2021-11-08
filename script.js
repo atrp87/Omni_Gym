@@ -58,7 +58,6 @@ const handleHover = function (e) {
 navbar.addEventListener('mouseover', handleHover.bind(0.5));
 navbar.addEventListener('mouseout', handleHover.bind(1));
 
-
 //// * STICKY NAV ////
 // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 // ? REVIEW Intersection Observer API **
@@ -122,7 +121,6 @@ navLinks.forEach((link) => {
   })
 });
 
-
 //// * LAZY IMAGES ////
 const imgTargets = document.querySelectorAll('img[data-src]');
 
@@ -162,7 +160,6 @@ closeModalBtn.addEventListener('click', () => {
 window.addEventListener('click', (e) => {
   e.target === modal ? modal.style.display = 'none' : null
 });
-
 
 //// * FORM ERROR ////
 const showError = (input, msg) => {
@@ -218,6 +215,5 @@ tabsContainer.addEventListener('click', function (e) {
   document
     .querySelector(`.memberships_content--${clicked.dataset.tab}`)
     .classList.add('memberships_content--active');
-
 });
 

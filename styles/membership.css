@@ -29,10 +29,6 @@
   transition: all 0.3s;
 }
 
-p {
-  color: #666;
-}
-
 .memberships {
   max-width: 200rem;
   padding-bottom: 4rem;
@@ -80,9 +76,27 @@ p {
 
 .memberships_content {
   display: none;
+  font-size: 1rem;
+}
 
-  /* JUST PRESENTATIONAL */
-  font-size: 1.2rem;
+.memberships_content ul {
+  list-style: none;
+}
+.memberships_content ul {
+  list-style: none;
+}
+.memberships_content ul {
+  list-style: none;
+}
+
+.empty_li {
+  visibility: hidden;
+}
+
+.memberships_content li::before {
+  content: "●";
+  color: var(--color-primary);
+  margin-right: 7px;
 }
 
 .memberships_content--active {
@@ -92,27 +106,52 @@ p {
 }
 
 .memberships_header {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 500;
+  padding-bottom: 1rem;
 }
 
-@media screen and (max-width: 600px) {
+.memberships_list {
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media screen and (max-width: 938px) {
   .memberships_tab_container {
     margin: 0 2px 0 2px;
   }
   .memberships_tab {
-    margin-right: 0.2rem;
+    margin-right: 1rem;
     justify-content: center;
   }
   .btn {
-    border-radius: 0.5rem;
-    padding: 0.2rem 1rem;
+    padding: 1rem 1rem;
   }
   .memberships_tab--4 {
     margin: 0;
   }
   .memberships_tab span {
-    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .memberships_tab_container {
+    margin: 0 2px 0 2px;
+  }
+  .memberships_tab {
+    margin-right: 0.3rem;
+    justify-content: center;
+  }
+  .btn {
+    border-radius: 0.5rem;
+    padding: 0 1rem 0 1rem;
+  }
+  .memberships_tab--4 {
+    margin: 0;
+  }
+  .memberships_tab span {
+    margin: 0 0.5rem 0 0.8rem;
+    display: block;
   }
 }
 
@@ -131,7 +170,7 @@ p {
     justify-content: center;
     text-align: center;
     border-radius: 0.5rem;
-    padding: 0.5rem 0.5rem;
+    padding: 0.4rem 0.4rem;
   }
 
   .memberships_content {
@@ -140,6 +179,7 @@ p {
   }
   .memberships_tab span {
     margin-right: 0.5rem;
+    display: inline-block;
   }
   #section--3 > .section_header__container {
     padding-bottom: 3rem;
