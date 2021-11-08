@@ -332,35 +332,63 @@
   <div class="modal" id="email_modal">
     <div class="modal_content">
       <span class="close_btn">&times;</span>
-      <div class="modal_content_left">
-        <img id="modal_img" src="./images/logo.png" alt="">
-      </div>
-      <div class="modal_content_right">
+          <div class="modal-header">
+      <p>Fill in your details below and we’ll be in touch.</p>
+      <p>If you have any questions regarding the gym, contact us on any social media platforms or <a href="mailto:omnifitness@hotmail.co.uk">omnifitness@hotmail.co.uk</a></p>
+    </div>
         <form action="https://formspree.io/f/xbjqvypn" method="POST" class="modal_form" id="form">
-          <h1>
-            Contact us filling out the form below ! If you have any questions regarding the, please do ask. 
-          </h1>
+          <div class="col">
           <div class="form_validation">
-            <input type="text" class="modal_input" id="name" name="name" placeholder="John Doe">
+            <input type="text" class="modal_input" id="name" name="name" placeholder="First name...">
             <p>Error Message</p>
           </div>
           <div class="form_validation">
-            <input type="email" class="modal_input" id="email" name="email" placeholder="JohnDoe@email.co.uk">
+            <input type="text" class="modal_input" id="surname" name="surname" placeholder="Surname...">
+            <p>Error Message</p>
+          </div>
+          </div>
+          <div class="col">
+          <div class="form_validation">
+            <input type="email" class="modal_input" id="email" name="email" placeholder="Email...">
             <p>Error Message</p>
           </div>
           <div class="form_validation">
-            <textarea name="message" class="modal_textarea" id="message" placeholder="Your message..." cols="20" rows="5"></textarea>
+            <input type="number" class="modal_input" id="phone_number" name="phone_number" placeholder="Phone number...">
             <p>Error Message</p>
           </div>
+          </div>
+          <div class="col">
+          <div class="form_validation">
+            <input type="text" class="modal_input" id="address_1" name="address_1" placeholder="Address 1...">
+            <p>Error Message</p>
+          </div>
+          <div class="form_validation">
+            <input type="email" class="modal_input" id="address_2" name="address_2" placeholder="Address 2...">
+            <p>Error Message</p>
+          </div>
+          </div>
+          <div class="col">
+          <div class="form_validation">
+            <input type="text" class="modal_input" id="town" name="town" placeholder="Town">
+            <p>Error Message</p>
+          </div>
+          <div class="form_validation">
+            <input type="text" pattern="[0-9]*" class="modal_input" id="post_code" name="post_code" placeholder="Post code">
+            <p>Error Message</p>
+          </div>
+          </div>
+          <div class="col">
           <input type="submit" class="modal_input_btn" value="Send">
+          </div>
+          </form>
+          <div class="modal_footer">
           <span class="modal_input_social">
             On social media? Follow us on
             <a href="https://www.facebook.com/OmniGym1/" target="_blank">Facebook</a>
             &
             <a href="https://www.instagram.com/omni_gym/?hl=en" target="_blank">Instagram</a>!
           </span>
-        </form>
-      </div>
+          </div>
     </div>
   </div>
 <!-- ! MODAL END -->

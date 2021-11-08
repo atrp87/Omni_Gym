@@ -27,12 +27,8 @@ const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
-
-
 //// * REFRESH LANDING PAGE TO ////
-
 // ! ON LOAD OPACITY 0 NO TRANSITIONS
-
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
@@ -180,7 +176,7 @@ const showValid = input => {
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
     if (input.value.trim() === '') {
-      showError(input, `${getFieldName(input)} is required`);
+      showError(input, `* ${getFieldName(input)} is required`);
     } else {
       showValid(input)
     }
@@ -189,12 +185,12 @@ function checkRequired(inputArr) {
 
 //// * FORM FIELD NAME ////
 const getFieldName = input => {
-  return input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  return input.name.charAt(0).toUpperCase() + input.name.slice(1).replaceAll('_', ' ');
 }
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  checkRequired([name, email, message]);
+  checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
 })
 
 
