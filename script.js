@@ -197,16 +197,13 @@ form.addEventListener('submit', (e) => {
 //// * MEMBER TAB ////
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.memberships_tab');
-
   // Guard clause
   if (!clicked) return;
   // Remove active classes
   tabs.forEach(t => t.classList.remove('memberships_tab--active'));
   tabsContent.forEach(c => c.classList.remove('memberships_content--active'));
-
   // Activate tab
   clicked.classList.add('memberships_tab--active');
-
   // Activate content area
   document
     .querySelector(`.memberships_content--${clicked.dataset.tab}`)

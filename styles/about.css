@@ -8,17 +8,12 @@
 
 .about_img {
   width: 80%;
-  object-fit: contain;
-}
-.mid_img {
-  margin: 0 auto;
 }
 
-/* Fix offset image on second col */
-.left_img {
-  margin: 0 auto;
+.center_col {
+  display: flex;
+  justify-content: center;
 }
-
 /* .lazy-img {
   filter: blur(20px);
 } */
