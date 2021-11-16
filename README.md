@@ -1,6 +1,6 @@
 # Omni Gym
 > A responsive website I created for the local gym I go to, helping them gain more exposure and presenting key information for example membership costs, open times and location for users that are interested in joining.
-> Live demo [_here_]().
+> Live demo [_here_](https://atrp87.github.io/Omni_Gym/).
 
 ## Table of Contents
 * [General Info](#general-information)
