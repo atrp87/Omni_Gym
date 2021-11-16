@@ -19,26 +19,9 @@ const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
 //// * GALLERY ////
 const galleryModal = document.querySelector('.gallery');
-const galleryWrapper = document.querySelector('.wrapper');
+const galleryWrapper = document.querySelector('.gallery_content');
 const services = document.querySelectorAll('.service');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
-
-services.forEach(() => {
-  addEventListener('click', () => {
-    galleryModal.style.display = 'block'
-  })
-})
-
-closeGalleryBtn.addEventListener('click', (e) => {
-  console.log(e.target);
-  galleryWrapper.style.display = 'none';
-});
-
-
-window.addEventListener('click', (e) => {
-  console.log(e.target)
-  e.target === galleryWrapper ? galleryModal.style.display = 'none' : null
-});
 
 //// * FORM ////
 const form = document.getElementById('form');
@@ -136,6 +119,7 @@ navLinks.forEach((link) => {
     // return burger bars from cross
     mobileMenu.classList.toggle('is-active');
     const linkID = document.getElementById(link.getAttribute('data-link'));
+    console.log(linkID);
     linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
 });
@@ -178,6 +162,22 @@ closeModalBtn.addEventListener('click', () => {
 
 window.addEventListener('click', (e) => {
   e.target === modal ? modal.style.display = 'none' : null
+});
+
+//// * GALLERY ////
+
+services.forEach((serv) => {
+  serv.addEventListener('click', () => {
+    galleryModal.style.display = 'block ';
+  })
+});
+
+closeGalleryBtn.addEventListener('click', () => {
+  galleryModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  e.target === galleryWrapper ? galleryModal.style.display = 'none' : null
 });
 
 //// * FORM ERROR ////
@@ -234,3 +234,25 @@ tabsContainer.addEventListener('click', function (e) {
     .classList.add('memberships_content--active');
 });
 
+
+//// * FORMSPREE ///
+
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.getElementById("my-form-status");
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    status.innerHTML = "Thanks for your submission!";
+    form.reset()
+  }).catch(error => {
+    status.innerHTML = "Oops! There was a problem submitting your form"
+  });
+}
+form.addEventListener("submit", handleSubmit)

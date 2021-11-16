@@ -1,6 +1,6 @@
 :root {
   --error-color: #cc0000;
-  --valid-color: #19a337;
+  /* --valid-color: #19a337; */
 }
 
 ::placeholder {
