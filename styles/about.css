@@ -59,7 +59,7 @@ p {
   .column {
     grid-template-columns: repeat(1, 1fr);
   }
-  .left_img {
+  .center_col {
     order: 2;
   }
   .column {
@@ -74,5 +74,13 @@ p {
 @media screen and (max-width: 670px) {
   .about_feature {
     width: 90%;
+  }
+  .about_img {
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about_img {
+    width: 100%;
   }
 }

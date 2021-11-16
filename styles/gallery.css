@@ -1,13 +1,66 @@
-.row {
+.gallery {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+}
+
+.close_btn_gallery {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.grid {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  flex-direction: row;
-  max-height: 100vh;
+  justify-content: center;
 }
-.img {
-  margin: 10px;
-  border: 3px solid #000;
-  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
-  max-width: 23vw;
+.grid-item {
+  min-width: 250px;
+  max-width: 250px;
+  flex: 1 1 250px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+.wrapper {
+  min-height: 100vh;
+  padding: 2rem 0;
+  color: #e4e4e8;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+.wrapper h1 {
+  font-size: 2.125em;
+  line-height: 1.5;
+}
+.wrapper p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #c4c4c8;
+}
+.grid-item figure {
+  padding: 0;
+  margin: 0;
+}
+.grid-item figure img {
+  display: block;
+  max-width: 100%;
+}
+.grid-item figcaption {
+  display: block;
+  padding: 0.625rem 0.5rem;
+  background: #474952;
 }

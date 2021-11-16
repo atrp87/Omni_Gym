@@ -17,6 +17,29 @@ const footerScrollBtn = document.querySelector('.footer_btn');
 const modal = document.getElementById('email_modal');
 const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
+//// * GALLERY ////
+const galleryModal = document.querySelector('.gallery');
+const galleryWrapper = document.querySelector('.wrapper');
+const services = document.querySelectorAll('.service');
+const closeGalleryBtn = document.querySelector('.close_btn_gallery');
+
+services.forEach(() => {
+  addEventListener('click', () => {
+    galleryModal.style.display = 'block'
+  })
+})
+
+closeGalleryBtn.addEventListener('click', (e) => {
+  console.log(e.target);
+  galleryWrapper.style.display = 'none';
+});
+
+
+window.addEventListener('click', (e) => {
+  console.log(e.target)
+  e.target === galleryWrapper ? galleryModal.style.display = 'none' : null
+});
+
 //// * FORM ////
 const form = document.getElementById('form');
 const name = document.getElementById('name');
@@ -166,20 +189,21 @@ const showError = (input, msg) => {
   errorMsg.innerText = msg;
 }
 
-//// * FORM VALID ////
-const showValid = input => {
-  const formVal = input.parentElement;
-  formVal.className = 'form_validation valid';
-}
+// //// * FORM VALID ////
+// const showValid = input => {
+//   const formVal = input.parentElement;
+//   formVal.className = 'form_validation valid';
+// }
 
 //// * FORM REQUIRED FIELDS ////
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
     if (input.value.trim() === '') {
       showError(input, `* ${getFieldName(input)} is required`);
-    } else {
-      showValid(input)
     }
+    // else {
+    //   showValid(input)
+    // }
   })
 }
 
