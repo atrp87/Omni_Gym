@@ -90,7 +90,7 @@ p {
 }
 
 /* Stops content jumping on nav fixed reveal @ section 1*/
-.nav-wrapper {
+.nav_wrapper {
   height: 80px;
 }
 

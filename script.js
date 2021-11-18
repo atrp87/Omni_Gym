@@ -11,16 +11,16 @@ const mobileMenu = document.querySelector('#mobile_menu');
 const navMenu = document.querySelector('.nav_menu');
 const navLinks = document.querySelectorAll('.nav_links');
 //// * SCROLL ////
-const headerScrollBtn = document.querySelector('.main_btn');
+const headerScrollBtn = document.querySelector('.hero_btn');
 const footerScrollBtn = document.querySelector('.footer_btn');
 //// * MODAL ////
 const modal = document.getElementById('email_modal');
 const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
 //// * GALLERY ////
-const galleryModal = document.querySelector('.gallery');
-const galleryWrapper = document.querySelector('.gallery_content');
-const services = document.querySelectorAll('.service');
+const galleryWrapper = document.querySelector('.gallery_wrapper');
+const galleryModal = document.querySelector('.gallery_container');
+const services = document.querySelectorAll('.service_content');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
 //// * FORM ////
 const form = document.getElementById('form');
@@ -33,11 +33,9 @@ const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
 //// * REFRESH LANDING PAGE TO ////
-window.onload = function () {
-  console.log('hi');
-  // init();
-  // doSomethingElse();
-};
+// window.onload = function () {
+
+// };
 
 
 //// * Mobile Menu Toggle ////
@@ -47,7 +45,7 @@ mobileMenu.addEventListener('click', () => {
 })
 
 //// * Nav & Mobile Menu Blur ////
-const handleHover = function (e) {
+const handleHoverNav = function (e) {
   if (e.target.classList.contains('nav_links')) {
     const link = e.target;
     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
@@ -58,8 +56,8 @@ const handleHover = function (e) {
     logo.style.opacity = this;
   };
 }
-navbar.addEventListener('mouseover', handleHover.bind(0.5));
-navbar.addEventListener('mouseout', handleHover.bind(1));
+navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
+navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
 //// * STICKY NAV ////
 // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
@@ -186,15 +184,16 @@ tabsContainer.addEventListener('click', function (e) {
     .classList.add('memberships_content--active');
 });
 
+
 //// * GALLERY ////
 services.forEach((service) => {
   service.addEventListener('click', () => {
-    galleryModal.style.display = 'block ';
+    galleryWrapper.style.display = 'block ';
   })
 });
 
 closeGalleryBtn.addEventListener('click', () => {
-  galleryModal.style.display = 'none';
+  galleryWrapper.style.display = 'none';
 });
 
 window.addEventListener('click', (e) => {

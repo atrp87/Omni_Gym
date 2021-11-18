@@ -22,7 +22,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="./favicon/favicon-76.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180.png">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-Tilemodal_color" content="#FFFFFF">
 	<meta name="msapplication-TileImage" content="./favicon/favicon-144.png">
 	<meta name="msapplication-config" content="./favicon/browserconfig.xml">
 	<!-- ****** favicons ****** -->
@@ -32,54 +32,51 @@
   <title>Omni Gym | Scottish Borders</title>
 </head>
 <body>
-<main>
-<!-- ! NAVABR -->
-  <header class="header">
-    <div class="nav-wrapper">
-    <div class="nav_container">
-      <nav class="navbar">
-        <h1 id="navbar_logo">OMNI GYM</h1>
-        <div class="menu_toggle" id="mobile_menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-        <ul class="nav_menu">
-          <li><a data-link="section--1" href="#" class="nav_links">About</a></li>
-          <li><a data-link="section--3" href="#" class="nav_links">Membership</a></li>
-          <li><a data-link="section--4" href="#" class="nav_links">Contact</a></li>
-          <li><a href="#" class="nav_links nav_links_btn">Sign Up</a></li>
-        </ul>
-      </nav>
-    </div>
-    </div>
-  <!-- ! NAVBAR END -->
-  <!-- ! HEAD -->
-      <div class="main_container">
-        <div class="main_content">
-          <h1>Welcome to Omni gym</h1>
-          <p>An inclusive gym in the Scottish borders</p>
-          <button class="main_btn" aria-label="Scroll down">Learn more &DownArrow;</button>
-        </div>
-        <div class="main_img_container">
-          <img id="main_img" src="./images/logo.png" alt="Omni Gym Logo">
+  <main>
+<!-- ! HEADER -->
+    <header class="header">
+      <div class="nav_wrapper">
+        <div class="nav_container">
+          <nav class="navbar">
+            <h1 id="navbar_logo">OMNI GYM</h1>
+            <div class="menu_toggle" id="mobile_menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <ul class="nav_menu">
+              <li><a data-link="section--1" href="#" class="nav_links">About</a></li>
+              <li><a data-link="section--3" href="#" class="nav_links">Membership</a></li>
+              <li><a data-link="section--4" href="#" class="nav_links">Contact</a></li>
+              <li><a href="#" class="nav_links nav_links_btn">Sign Up</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
-  </header>
-  <!-- ! HEAD END -->
+      <div class="hero_container">
+        <div class="hero_content">
+          <h1>Welcome to Omni gym</h1>
+          <p>An inclusive gym in the Scottish borders</p>
+          <button class="hero_btn" aria-label="Scroll down">Learn more &DownArrow;</button>
+        </div>
+        <div class="hero_img_container">
+          <img id="hero_img" src="./images/logo.png" alt="Omni Gym Logo">
+        </div>
+      </div>
+    </header>
+<!-- ! HEADER END -->
 
-  <!-- ! ABOUT -->
-  <section class="section" id="section--1">
+<!-- ! ABOUT -->
+    <section class="section" id="section--1">
       <div class="section_header__container">
         <div class="section_content">
           <h3>About</h3>
           <h2>Everything you need in a gym and more</h2>
         </div>
       </div>
-
-    <div class="about_container">
-      <div class="column">
-        <div class="about_feature">
+      <div class="about_container">
+        <div class="about_col">
+        <div class="about_content">
           <h5 class="about_header">Omni Gym</h5>
           <p>A functional strength facility open <strong>7 days a week 18 hours a day between 6am - 12am</strong>.</p>
           <p>Members are given their own personal key to access the gym during hours of operation.</p>
@@ -91,148 +88,134 @@
           alt="omni gym floor with mural saying 'Omni Gym' on a dark wall"
           class="about_img lazy_img"
         />
-      </div>
-      <div class="column">
-        <div class="center_col">
-          <img
-            src="./images/Optimized-pt.jpg"
-            data-src="./images/pt.jpg"
-            alt="personal trainer helping with leg press"
-            class="about_img left_img lazy_img"
-          />
-          </div>
-        <div class="about_feature col__switch">
-          <h5 class="about_header">One on One Personal Training</h5>
-          <p>
-            Flexible personal training packages are available ranging from silver to gold plus 
-            where you can train from <strong>once a month up to 4 times a month</strong> offering something for everyone.
-          </p>
-          <p>
-            These packages also include our <strong>group classes on tuesday and thursday</strong> evenings giving our pt clients 
-            extra sessions to do during the week.
-          </p>
         </div>
+        <div class="about_col">
+          <div class="about_center_col">
+            <img
+              src="./images/Optimized-pt.jpg"
+              data-src="./images/pt.jpg"
+              alt="personal trainer helping with leg press"
+              class="about_img left_img lazy_img"
+            />
+          </div>
+          <div class="about_content modal_col__switch">
+            <h5 class="about_header">One on One Personal Training</h5>
+            <p>
+              Flexible personal training packages are available ranging from silver to gold plus 
+              where you can train from <strong>once a month up to 4 times a month</strong> offering something for everyone.
+            </p>
+            <p>
+              These packages also include our <strong>group classes on tuesday and thursday</strong> evenings giving our pt clients 
+              extra sessions to do during the week.
+            </p>
+          </div>
+        </div>
+        <div class="about_col">
+        <div class="about_content">
+          <h5 class="about_header">Flexible Memberships</h5>
+          <p>
+            Our members only gym offers a wide range of services including flexible training times which allows Our 4 tiered membership option allows something for everyone with personal training and classes included.
+          </p>
+          <p>There’s something for everyone, so don’t hesitate to start your fitness journey with us.</p>
+        </div>
+        <img
+          src="./images/Optimized-member.jpg"
+          data-src="./images/member.jpg"
+          alt="person holding membership brochures"
+          class="about_img lazy-img"
+        />
       </div>
-      <div class="column">
-      <div class="about_feature">
-        <h5 class="about_header">Flexible Memberships</h5>
-        <p>
-          Our members only gym offers a wide range of services including flexible training times which allows Our 4 tiered membership option allows something for everyone with personal training and classes included.
-        </p>
-        <p>There’s something for everyone, so don’t hesitate to start your fitness journey with us.</p>
-      </div>
-      <img
-        src="./images/Optimized-member.jpg"
-        data-src="./images/member.jpg"
-        alt="person holding membership brochures"
-        class="about_img lazy-img"
-      />
-  </div>
     </div>
-  </section>
-  <!-- ! ABOUT END -->
+    </section>
+<!-- ! ABOUT END -->
 
-  <!-- ! SERVICES -->
-  <section class="section" id="section--2">
-          <div class="section_header__container">
+<!-- ! SERVICES -->
+    <section class="section" id="section--2">
+      <div class="section_header__container">
         <div class="section_content">
           <h3>Services</h3>
           <h2>Changing Your Habits for Better Health</h2>
         </div>
       </div>
-<div class="container">
-  <div class="service_row">
-    <div class="service">
-      <i class="fas fa-user-friends"></i>
-      <h2>Group Classes</h2>
-      <p><strong>Tuesday</strong></p>
-      <p>18:30 - 19:30 BODY PUMP</p><br>
-      <p><strong>Thursday</strong></p>
-      <p>19:00 - 20:00 & 20:00 - 21:00 CIRCUITS</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-dumbbell"></i>
-      <h2>Resistance</h2>
-      <p>Resistance training increases muscle strength by making your muscles work against a weight or force.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-running"></i>
-      <h2>Cardio</h2>
-      <p>physical conditioning that exercises the heart, lungs and associated blood vessels.</p>
-    </div>
-    <div class="service">
-      <i class="far fa-smile"></i>
-      <h2>Wellbeing</h2>
-      <p>Physical activity is a great way to keep you physically healthy as well as improving your mental wellbeing, releasing endorphins in the brain.</p>
-    </div>
-</div>
+      <div class="service_wrapper">
+        <div class="service_container">
+          <div class="service_content">
+            <i class="fas fa-user-friends"></i>
+            <h2>Group Classes</h2>
+            <p><strong>Tuesday</strong></p>
+            <p>18:30 - 19:30 BODY PUMP</p><br>
+            <p><strong>Thursday</strong></p>
+            <p>19:00 - 20:00 & 20:00 - 21:00 CIRCUITS</p>
+          </div>
+          <div class="service_content">
+            <i class="fas fa-dumbbell"></i>
+            <h2>Resistance</h2>
+            <p>Resistance training increases muscle strength by making your muscles work against a weight or force.</p>
+          </div>
+          <div class="service_content">
+            <i class="fas fa-running"></i>
+            <h2>Cardio</h2>
+            <p>physical conditioning that exercises the heart, lungs and associated blood vessels.</p>
+          </div>
+          <div class="service_content">
+            <i class="far fa-smile"></i>
+            <h2>Wellbeing</h2>
+            <p>Physical activity is a great way to keep you physically healthy as well as improving your mental wellbeing, releasing endorphins in the brain.</p>
+          </div>
+      </div>
+    </section>
+<!-- ! SERVICES END -->
 
-</section>
-    <!-- ! SERVICES END -->
-
-  <!-- ! MEMBERSHIP -->
-<section class="section" id="section--3">
-
-              <div class="section_header__container">
+<!-- ! MEMBERSHIP -->
+    <section class="section" id="section--3">
+      <div class="section_header__container">
         <div class="section_content">
           <h3>Monthly Memberships</h3>
           <h2>Flexible and affordable memberships</h2>
         </div>
       </div>
-
-<div class="memberships">
+      <div class="memberships">
         <div class="memberships_tab_container">
-          <button
-            class="btn memberships_tab memberships_tab--1 memberships_tab--active"
-            data-tab="1"
-          >
-            <span>01</span>GOLD +
-          </button>
-          <button class="btn memberships_tab memberships_tab--2" data-tab="2">
-            <span>02</span>GOLD
-          </button>
-          <button class="btn memberships_tab memberships_tab--3" data-tab="3">
-            <span>03</span>SILVER
-          </button>
-                    <button class="btn memberships_tab memberships_tab--4" data-tab="4">
-            <span>04</span>BRONZE
-          </button>
-        </div>
-        <div
-          class="memberships_content memberships_content--1 memberships_content--active"
+        <button class="btn memberships_tab memberships_tab--1 memberships_tab--active" 
+          data-tab="1"
         >
-  
-          <h5 class="memberships_header">
-            GOLD +
-          </h5>
-          <div class="memberships_list">
+          <span>01</span>GOLD +
+        </button>
+        <button class="btn memberships_tab memberships_tab--2" data-tab="2">
+          <span>02</span>GOLD
+        </button>
+        <button class="btn memberships_tab memberships_tab--3" data-tab="3">
+          <span>03</span>SILVER
+        </button>
+        <button class="btn memberships_tab memberships_tab--4" data-tab="4">
+          <span>04</span>BRONZE
+        </button>
+      </div>
+      <div class="memberships_content memberships_content--1 memberships_content--active">
+        <h5 class="memberships_header">GOLD +</h5>
+        <div class="memberships_list">
           <ul>
             <li>£ 110/month</li>
             <li>4 x 1 hour personal training sessions a month</li>
             <li>Unlimited entry into classes</li>
             <li>Monthly gym Membership</li>
           </ul>
-          </div>
         </div>
-
-        <div class="memberships_content memberships_content--2">
-          <h5 class="memberships_header">
-            GOLD
-          </h5>
-          <div class="memberships_list">
-            <ul>
-              <li>£ 70/month</li>
-              <li>2 x 1 hour personal training sessions a month</li>
-              <li>Unlimited entry into classes</li>
-              <li>Monthly gym Membership</li>
-            </ul>
-            </div>
+      </div>
+      <div class="memberships_content memberships_content--2">
+        <h5 class="memberships_header">GOLD</h5>
+        <div class="memberships_list">
+          <ul>
+            <li>£ 70/month</li>
+            <li>2 x 1 hour personal training sessions a month</li>
+            <li>Unlimited entry into classes</li>
+            <li>Monthly gym Membership</li>
+          </ul>
         </div>
-        <div class="memberships_content memberships_content--3">
-          <h5 class="memberships_header">
-            SILVER
-          </h5>
-          <div class="memberships_list">
+      </div>
+      <div class="memberships_content memberships_content--3">
+        <h5 class="memberships_header">SILVER</h5>
+        <div class="memberships_list">
           <ul>
             <li>£ 50/month</li>
             <li>1 x 1 hour personal training sessions a month</li>
@@ -240,12 +223,10 @@
             <li>Monthly gym Membership</li>
           </ul>
         </div>
-        </div>
-                <div class="memberships_content memberships_content--4">
-          <h5 class="memberships_header">
-            BRONZE
-          </h5>
-          <div class="memberships_list">
+      </div>
+      <div class="memberships_content memberships_content--4">
+        <h5 class="memberships_header">BRONZE</h5>
+        <div class="memberships_list">
           <ul>
             <li>£ 30/month</li>
             <li>Unlimited entry into classes</li>
@@ -253,218 +234,185 @@
             <li class='empty_li'></li>
           </ul>
         </div>
-        </div>
       </div>
+    </div>
+    </section>
+<!-- ! MEMBERSHIP END -->
 
-</section>
-  <!-- ! MEMBERSHIP END -->
-
-  <!-- ! CONTACT -->
+<!-- ! FOOTER -->
     <footer class="footer section" id="section--4">
-        <div class="section_footer__container">
+      <div class="section_footer__container">
         <div class="section_content">
           <h3>Contact</h3>
           <h2>Where to find us</h2>
         </div>
       </div>
-    <div id='map'>
-      <iframe title="map of omni gym's location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.5157104906843!2d-3.1708541839143773!3d55.64523870775008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887ed6a1681af31%3A0x67820f1a74ab7621!2sOmni-fitness!5e0!3m2!1sen!2suk!4v1633187542993!5m2!1sen!2suk" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="contact_wrapper">
-      <div class="contact_container">
-        <div class="item_1 item">
-          <div>
-            <h3>Location</h3>
-          </div>
-          <span>Unit 5 Elm Ct,</span>
-          <span>Cavalry Park,</span>
-          <span>Peebles</span>
-          <span>EH45 9BU</span>
-        </div>
-        <div class="item_2 item">
-          <div>
-            <h3>Directions</h3>
-          </div>
-          <span>Google maps</span>
-          <span>code: JRWJ+3G</span>
-          <span>Peebles</span>
-        </div>
+      <div id='map'>
+        <iframe title="map of omni gym's location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.5157104906843!2d-3.1708541839143773!3d55.64523870775008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887ed6a1681af31%3A0x67820f1a74ab7621!2sOmni-fitness!5e0!3m2!1sen!2suk!4v1633187542993!5m2!1sen!2suk" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
-      <div>
-        <div>
+      <div class="footer_wrapper">
+        <div class="footer_container">
+          <div class="item_1 item">
+            <div>
+              <h3>Location</h3>
+            </div>
+            <span>Unit 5 Elm Ct,</span>
+            <span>Cavalry Park,</span>
+            <span>Peebles</span>
+            <span>EH45 9BU</span>
+            </div>
+            <div class="item_2 item">
+              <div>
+                <h3>Directions</h3>
+              </div>
+              <span>Google maps</span>
+              <span>code: JRWJ+3G</span>
+              <span>Peebles</span>
+            </div>
+          </div>
           <div>
             <h3>Hours of Operation</h3>
           </div>
           <span>7 days a week</span>
           <span>06:00 - 00:00</span>
-        </div>
-        <div>
           <div>
-            <h3>Contact Us</h3>
+            <div>
+              <h3>Contact Us</h3>
+            </div>
+            <a href="mailto:omnifitness@hotmail.co.uk">omnifitness@hotmail.co.uk</a>
+            <div>
+              <h3>Get Social</h3>
+            </div>
+            <div>
+              <a href="https://www.facebook.com/OmniGym1/" target="_blank">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+              <a href="https://www.instagram.com/omni_gym/?hl=en" target="_blank">
+                <i class="fab fa-instagram-square"></i>
+              </a>
+            </div>
+            <div>
+              <p>We'd love to see you enjoying the gym! Share your images on social media using the hashtag #omnigym.</p>
+            </div>
           </div>
-          <a href="mailto:omnifitness@hotmail.co.uk">omnifitness@hotmail.co.uk</a>
-        </div>
-        <div>
-          <div>
-            <h3>Get Social</h3>
+          <div class="cheveron_up" >
+            <button class="footer_btn">
+              <i class="fas fa-chevron-up"></i>
+            </button>
           </div>
-          <div>
-            <a href="https://www.facebook.com/OmniGym1/" target="_blank">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-            <a href="https://www.instagram.com/omni_gym/?hl=en" target="_blank">
-              <i class="fab fa-instagram-square"></i>
-            </a>
-          </div>
-          <div>
-            <p>We'd love to see you enjoying the gym! Share your images on social media using the hashtag #omnigym.</p>
-        </div>
-      </div>
-    </div>
-    <div class="cheveron_up" >
-      <button class="footer_btn">
-        <i class="fas fa-chevron-up"></i>
-      </button>
-    </div>
-  </footer>
-<!-- ! CONTACT END -->
-</main>
+    </footer>
+<!-- ! FOOTER END -->
+  </main>
 
 <!-- ! GALLERY -->
-  <div class="gallery">
+<div class="gallery_wrapper">
+  <div class="gallery_container">
+    <span class="close_btn_gallery">&times;</span>
     <div class="gallery_content">
-        <span class="close_btn_gallery">&times;</span>
-        <div class="grid">
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=400" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=401" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=403" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=404" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=405" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=406" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=407" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=408" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=409" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-            <div class="grid_item">
-                <figure>
-                    <img src="https://unsplash.it/250/187?image=411" alt="">
-                    <figcaption>Image Title</figcaption>
-                </figure>
-            </div>
-        </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=400" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=401" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=403" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=404" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=405" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=406" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=407" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=408" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=409" alt="">
+      </div>
+      <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=411" alt="">
+      </div>
+            <div class="gallery_contents">
+        <img src="https://unsplash.it/250/187?image=411" alt="">
+      </div>
     </div>
+  </div>
 </div>
 <!-- ! GALLERY END -->
 
 <!-- ! MODAL -->
-  <div class="modal" id="email_modal">
-    <div class="modal_content">
-      <span class="close_btn">&times;</span>
-          <div class="modal-header">
+<div class="modal" id="email_modal">
+  <div class="modal_content">
+    <span class="close_btn">&times;</span>
+    <div class="modal-header">
       <p>Fill in your details below and we’ll be in touch.</p>
       <p>If you have any questions regarding the gym, contact us on any social media platforms or <a href="mailto:omnifitness@hotmail.co.uk">omnifitness@hotmail.co.uk</a></p>
     </div>
-        <form action="https://formspree.io/f/xbjqvypn" method="POST" class="modal_form" id="form">
-          <div class="col">
-          <div class="form_validation">
-            <input type="text" class="modal_input" id="name" name="name" placeholder="* First name...">
-            <p>Error Message</p>
-          </div>
-          <div class="form_validation">
-            <input type="text" class="modal_input" id="surname" name="surname" placeholder="* Surname...">
-            <p>Error Message</p>
-          </div>
-          </div>
-          <div class="col">
-          <div class="form_validation">
-            <input type="email" class="modal_input" id="email" name="email" placeholder="* Email...">
-            <p>Error Message</p>
-          </div>
-          <div class="form_validation">
-            <input type="number" class="modal_input" id="phone_number" name="phone_number" placeholder="* Phone number...">
-            <p>Error Message</p>
-          </div>
-          </div>
-          <div class="col">
-          <div class="form_validation">
-            <input type="text" class="modal_input" id="address_1" name="address_1" placeholder="* Address 1...">
-            <p>Error Message</p>
-          </div>
-          <div class="form_validation">
-            <input type="email" class="modal_input" id="address_2" name="address_2" placeholder="Address 2...">
-            <p>Error Message</p>
-          </div>
-          </div>
-          <div class="col">
-          <div class="form_validation">
-            <input type="text" class="modal_input" id="town" name="town" placeholder="* Town">
-            <p>Error Message</p>
-          </div>
-          <div class="form_validation">
-            <input type="text" class="modal_input" id="post_code" name="post_code" placeholder="* Post code">
-            <p>Error Message</p>
-          </div>
-          </div>
-          <div class="col">
-          <input type="submit" class="modal_input_btn" value="Send">
-          <p id="my-form-status"></p>
-          </div>
-          </form>
-          <div class="modal_footer">
-          <span class="modal_input_social">
-            On social media? Follow us on
-            <a href="https://www.facebook.com/OmniGym1/" target="_blank">Facebook</a>
-            &
-            <a href="https://www.instagram.com/omni_gym/?hl=en" target="_blank">Instagram</a>!
-          </span>
-          </div>
+    <form action="https://formspree.io/f/xbjqvypn" method="POST" class="modal_form" id="form">
+      <div class="modal_col">
+        <div class="form_validation">
+          <input type="text" class="modal_input" id="name" name="name" placeholder="* First name...">
+          <p>Error Message</p>
+        </div>
+        <div class="form_validation">
+          <input type="text" class="modal_input" id="surname" name="surname" placeholder="* Surname...">
+          <p>Error Message</p>
+        </div>
+      </div>
+      <div class="modal_col">
+        <div class="form_validation">
+          <input type="email" class="modal_input" id="email" name="email" placeholder="* Email...">
+          <p>Error Message</p>
+        </div>
+        <div class="form_validation">
+          <input type="number" class="modal_input" id="phone_number" name="phone_number" placeholder="* Phone number...">
+          <p>Error Message</p>
+        </div>
+        </div>
+        <div class="modal_col">
+        <div class="form_validation">
+          <input type="text" class="modal_input" id="address_1" name="address_1" placeholder="* Address 1...">
+          <p>Error Message</p>
+        </div>
+        <div class="form_validation">
+          <input type="email" class="modal_input" id="address_2" name="address_2" placeholder="Address 2...">
+          <p>Error Message</p>
+        </div>
+      </div>
+      <div class="modal_col">
+        <div class="form_validation">
+          <input type="text" class="modal_input" id="town" name="town" placeholder="* Town">
+          <p>Error Message</p>
+        </div>
+        <div class="form_validation">
+          <input type="text" class="modal_input" id="post_code" name="post_code" placeholder="* Post code">
+          <p>Error Message</p>
+        </div>
+      </div>
+      <div class="modal_col">
+        <input type="submit" class="modal_input_btn" value="Send">
+        <p id="my-form-status"></p>
+      </div>
+    </form>
+    <div class="modal_footer">
+      <span class="modal_input_social">
+        On social media? Follow us on
+        <a href="https://www.facebook.com/OmniGym1/" target="_blank">Facebook</a>
+        &
+        <a href="https://www.instagram.com/omni_gym/?hl=en" target="_blank">Instagram</a>!
+      </span>
     </div>
   </div>
+</div>
 <!-- ! MODAL END -->
+
   <script src="script.js"></script>
 </body>
 </html>

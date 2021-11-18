@@ -67,7 +67,7 @@
   margin: 0 auto;
 }
 
-.col {
+.modal_col {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

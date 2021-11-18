@@ -29,11 +29,11 @@ iframe {
   width: 95%;
 }
 
-.contact_wrapper {
+.footer_wrapper {
   text-align: center;
 }
 
-.contact_container {
+.footer_container {
   padding: 10px;
   width: 100%;
   display: flex;
@@ -55,7 +55,7 @@ iframe {
   padding: 1rem;
 }
 
-.contact_wrapper a:first-of-type {
+.footer_wrapper a:first-of-type {
   color: #eee;
   text-decoration: none;
 }
@@ -66,14 +66,14 @@ iframe {
   font-size: 20px;
 }
 
-.item {
+footer .item {
   padding: 20px;
   margin: 10px;
   flex: 1;
   max-width: 200px;
 }
 
-.item_2 {
+footer .item_2 {
   align-self: baseline;
 }
 
@@ -129,11 +129,11 @@ iframe {
 }
 
 @media screen and (max-width: 443px) {
-  .contact_container {
+  .footer_container {
     flex-direction: column;
   }
 
-  .item_2 {
+  footer .item_2 {
     align-self: auto;
   }
 }
