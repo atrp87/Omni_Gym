@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 //// * GENERAL ////
 const header = document.querySelector('.header');
@@ -22,7 +22,6 @@ const galleryModal = document.querySelector('.gallery');
 const galleryWrapper = document.querySelector('.gallery_content');
 const services = document.querySelectorAll('.service');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
-
 //// * FORM ////
 const form = document.getElementById('form');
 const name = document.getElementById('name');
@@ -34,10 +33,12 @@ const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
 //// * REFRESH LANDING PAGE TO ////
-// ! ON LOAD OPACITY 0 NO TRANSITIONS
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
+window.onload = function () {
+  console.log('hi');
+  // init();
+  // doSomethingElse();
+};
+
 
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
@@ -90,7 +91,7 @@ const revealSection = function (entries, observer) {
 
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: 0.15,
+  threshold: 0.1,
 });
 
 allSections.forEach((section) => {
@@ -109,7 +110,6 @@ footerScrollBtn.addEventListener('click', () => {
 
 
 //// * NAV SCROLL LINKS ////
-//// ? fix error on last ele in node list ( sign up) ///
 navLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault()
@@ -118,9 +118,13 @@ navLinks.forEach((link) => {
     navMenu.classList.toggle('active');
     // return burger bars from cross
     mobileMenu.classList.toggle('is-active');
+
     const linkID = document.getElementById(link.getAttribute('data-link'));
-    console.log(linkID);
-    linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (linkID === null) {
+      return;
+    } else {
+      linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   })
 });
 
@@ -154,20 +158,37 @@ imgTargets.forEach(img => imgObserver.observe(img));
 openModalBtn.addEventListener('click', (e) => {
   e.preventDefault()
   modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 });
 
 closeModalBtn.addEventListener('click', () => {
   modal.style.display = 'none';
+  document.body.style.overflow = 'scroll';
 });
 
 window.addEventListener('click', (e) => {
   e.target === modal ? modal.style.display = 'none' : null
 });
 
-//// * GALLERY ////
+//// * MEMBER TAB ////
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.memberships_tab');
+  // Guard clause
+  if (!clicked) return;
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('memberships_tab--active'));
+  tabsContent.forEach(c => c.classList.remove('memberships_content--active'));
+  // Activate tab
+  clicked.classList.add('memberships_tab--active');
+  // Activate content area
+  document
+    .querySelector(`.memberships_content--${clicked.dataset.tab}`)
+    .classList.add('memberships_content--active');
+});
 
-services.forEach((serv) => {
-  serv.addEventListener('click', () => {
+//// * GALLERY ////
+services.forEach((service) => {
+  service.addEventListener('click', () => {
     galleryModal.style.display = 'block ';
   })
 });
@@ -217,31 +238,11 @@ form.addEventListener('submit', (e) => {
   checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
 })
 
-
-//// * MEMBER TAB ////
-tabsContainer.addEventListener('click', function (e) {
-  const clicked = e.target.closest('.memberships_tab');
-  // Guard clause
-  if (!clicked) return;
-  // Remove active classes
-  tabs.forEach(t => t.classList.remove('memberships_tab--active'));
-  tabsContent.forEach(c => c.classList.remove('memberships_content--active'));
-  // Activate tab
-  clicked.classList.add('memberships_tab--active');
-  // Activate content area
-  document
-    .querySelector(`.memberships_content--${clicked.dataset.tab}`)
-    .classList.add('memberships_content--active');
-});
-
-
-//// * FORMSPREE ///
-
-
+//// * FORMSPREE ////
 async function handleSubmit(event) {
   event.preventDefault();
-  var status = document.getElementById("my-form-status");
-  var data = new FormData(event.target);
+  let status = document.getElementById("my-form-status");
+  const data = new FormData(event.target);
   fetch(event.target.action, {
     method: form.method,
     body: data,
@@ -252,7 +253,7 @@ async function handleSubmit(event) {
     status.innerHTML = "Thanks for your submission!";
     form.reset()
   }).catch(error => {
-    status.innerHTML = "Oops! There was a problem submitting your form"
+    status.innerHTML = "Oops! Please fill out the required fields"
   });
 }
 form.addEventListener("submit", handleSubmit)
