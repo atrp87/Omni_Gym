@@ -14,11 +14,15 @@
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
 
+.service_container p:nth-of-type(2n) {
+  padding: 0.5rem;
+}
+
 .service_content {
   text-align: center;
   padding: 25px 10px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 0.9rem;
   cursor: pointer;
   background: transparent;
   transition: transform 0.5s, background 0.5s;

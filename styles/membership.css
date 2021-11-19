@@ -136,6 +136,12 @@
   width: 95%;
 }
 
+.train_heroic a {
+  text-decoration: none;
+  color: var(--color-primary-darker);
+  font-weight: 600;
+}
+
 @media screen and (max-width: 938px) {
   .memberships_tab_container {
     margin: 0 2px 0 2px;
