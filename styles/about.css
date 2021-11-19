@@ -1,18 +1,40 @@
 .about_container {
-  display: grid;
-  padding: 1rem;
-  gap: 3rem;
+  align-self: center;
+  justify-self: center;
+  font-size: 1.5rem;
   padding-bottom: 4rem;
+}
+
+.about_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(394px, 1fr));
+  gap: 20px;
+  max-width: 1500px;
+  padding-bottom: 3rem;
+  width: 80%;
   margin: 0 auto;
 }
 
 .about_img {
-  width: 80%;
+  width: 100%;
 }
 
-.about_center_col {
-  display: flex;
-  justify-content: center;
+.about_grid p {
+  font-size: 1rem;
+}
+
+.about_contents {
+  padding: 1.35rem;
+}
+
+.about_grid h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about_grid img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* * add perform */
@@ -20,67 +42,33 @@
   filter: blur(20px);
 } */
 
-.about_content {
-  align-self: center;
-  justify-self: center;
-  width: 70%;
-  font-size: 1.5rem;
-}
-
-.about_header {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.about_header,
-p {
-  font-size: 1rem;
-}
-
-.about_col {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 1rem;
-}
-
-@media screen and (max-width: 1511px) {
-  .about_container {
-    max-width: 1250px;
+@media screen and (min-width: 1500px) {
+  .about_contents {
+    padding: 3rem 1.35rem 4rem 1.35rem;
+  }
+  .about_grid img {
+    width: 80%;
   }
 }
 
-.about_col {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, /* min value */ 2fr /* max value */)
-  );
-  gap: 20px;
-}
-
-@media (max-width: 960px) {
-  .about_col {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .about_center_col {
-    order: 2;
-  }
-  .about_col {
+@media screen and (max-width: 1012px) {
+  .about_grid {
     text-align: center;
+    grid-template-columns: 1fr;
   }
-
-  .about_col img {
-    justify-self: center;
+  .about_grid img {
+    width: 70%;
   }
-}
-
-@media screen and (max-width: 670px) {
-  .about_content {
-    width: 90%;
+  .about_col_switch {
+    order: 1;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .about_img {
+@media screen and (max-width: 550px) {
+  .about_contents {
+    padding: 0;
+  }
+  .about_grid img {
     width: 100%;
   }
 }
