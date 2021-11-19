@@ -111,6 +111,31 @@
   text-align: left;
 }
 
+/* * TRAIN HEROIC */
+
+.train_heroic_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.train_heroic {
+  padding: 1.35rem;
+  border-radius: 4px;
+}
+
+.train_heroic h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.train_heroic_content img {
+  width: 95%;
+}
+
 @media screen and (max-width: 938px) {
   .memberships_tab_container {
     margin: 0 2px 0 2px;
@@ -181,27 +206,12 @@
   }
 }
 
-/* * TRAIN HEROIC */
-
-.train_heroic_content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-bottom: 4rem;
-}
-
-.train_heroic {
-  padding: 1.35rem;
-  border-radius: 4px;
-}
-
-.train_heroic h3 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.train_heroic_content img {
-  width: 95%;
+@media screen and (max-width: 1012px) {
+  .train_heroic_content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .train_heroic_content img {
+    width: 70%;
+  }
 }

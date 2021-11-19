@@ -49,6 +49,7 @@ p {
   width: 80%;
   margin: 0 auto;
   padding: 6rem 0 5rem;
+  max-width: 2550px;
 }
 
 .section_content {
