@@ -22,8 +22,9 @@
 }
 
 .gallery_container img {
-  width: 50%;
   transition: all 1s;
+  /* max-width: 40%;
+  height: auto; */
 }
 .gallery_container img:hover {
   transform: scale(1.1);

@@ -32,10 +32,13 @@ const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
+
+//// ! see session storage ////
 //// * Page Load Remove Opacity ////
-// window.onload = (event) => {
+// window.onload = () => {
 //   allSections.forEach((section) => {
 //     section.classList.remove('section--hidden');
+//     section.style = 'transition: none;'
 //   });
 // };
 
@@ -98,6 +101,7 @@ allSections.forEach((section) => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
 
 //// * SCROLL VIEW ////
 headerScrollBtn.addEventListener('click', () => {
