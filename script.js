@@ -18,7 +18,7 @@ const modal = document.getElementById('email_modal');
 const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
 //// * GALLERY ////
-const galleryWrapper = document.querySelector('.gallery_wrapper');
+const galleryOverlay = document.querySelector('.gallery_overlay');
 const galleryModal = document.querySelector('.gallery_container');
 const services = document.querySelectorAll('.service_content');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
@@ -32,9 +32,11 @@ const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
-//// * REFRESH LANDING PAGE TO ////
-// window.onload = function () {
-
+//// * Page Load Remove Opacity ////
+// window.onload = (event) => {
+//   allSections.forEach((section) => {
+//     section.classList.remove('section--hidden');
+//   });
 // };
 
 
@@ -188,16 +190,16 @@ tabsContainer.addEventListener('click', function (e) {
 //// * GALLERY ////
 services.forEach((service) => {
   service.addEventListener('click', () => {
-    galleryWrapper.style.display = 'block ';
+    galleryOverlay.style.display = 'block ';
   })
 });
 
 closeGalleryBtn.addEventListener('click', () => {
-  galleryWrapper.style.display = 'none';
+  galleryOverlay.style.display = 'none';
 });
 
 window.addEventListener('click', (e) => {
-  e.target === galleryWrapper ? galleryModal.style.display = 'none' : null
+  e.target === galleryOverlay ? galleryOverlay.style.display = 'none' : null
 });
 
 //// * FORM ERROR ////

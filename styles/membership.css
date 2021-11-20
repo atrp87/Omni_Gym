@@ -127,6 +127,10 @@
   border-radius: 4px;
 }
 
+.train_heroic p:nth-child(1n) {
+  padding-bottom: 0.6rem;
+}
+
 .train_heroic h3 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
