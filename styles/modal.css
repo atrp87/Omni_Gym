@@ -33,7 +33,7 @@
 
 .modal_content {
   background: #f3f3f3;
-  margin: 10% auto;
+  margin: 7% auto;
   width: 90%;
   max-width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -159,11 +159,17 @@
 
 .modal_input_social {
   margin: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
   color: #666;
   width: 80%;
   text-align: center;
+}
+
+.form_status {
+  text-align: center;
+  padding-top: 1rem;
+  font-weight: 500;
 }
 
 .modal a {

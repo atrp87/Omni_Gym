@@ -11,21 +11,23 @@
 }
 
 .gallery_container {
-  max-width: 1600px;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  max-width: 1500px;
   justify-content: center;
+  padding: 2rem 4rem 0 4rem;
   margin: 0 auto;
-  gap: 20px;
-  padding: 3rem 0 3rem 0;
 }
 
 .gallery_container img {
   transition: all 1s;
-  /* max-width: 40%;
-  height: auto; */
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  object-position: bottom;
+  padding: 5px;
 }
+
 .gallery_container img:hover {
   transform: scale(1.1);
 }
@@ -33,7 +35,7 @@
 .close_btn_gallery {
   position: fixed;
   top: 0;
-  right: 30px;
+  right: 20px;
   font-size: 2rem;
   font-weight: 600;
   cursor: pointer;

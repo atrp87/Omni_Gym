@@ -246,7 +246,7 @@ form.addEventListener('submit', (e) => {
 //// * FORMSPREE ////
 async function handleSubmit(event) {
   event.preventDefault();
-  let status = document.getElementById("my-form-status");
+  let status = document.getElementById("my_form--status");
   const data = new FormData(event.target);
   fetch(event.target.action, {
     method: form.method,
