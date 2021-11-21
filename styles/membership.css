@@ -85,9 +85,9 @@
   list-style: none;
 }
 
-.empty_li {
+/* .empty_li {
   visibility: hidden;
-}
+} */
 
 .memberships_content li::before {
   content: "●";
@@ -196,12 +196,10 @@
     margin-right: 0.1rem;
   }
   .btn {
-    justify-content: center;
     text-align: center;
     border-radius: 0.5rem;
     padding: 0.4rem 0.4rem;
     font-weight: 700;
-    text-align: center;
   }
 
   .memberships_content {

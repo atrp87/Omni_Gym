@@ -1,6 +1,6 @@
 .gallery_overlay {
   position: fixed;
-  z-index: 10;
+  z-index: 12;
   left: 0;
   top: 0;
   width: 100%;
@@ -13,30 +13,34 @@
 .gallery_container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1500px;
   justify-content: center;
-  padding: 2rem 4rem 0 4rem;
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 2rem 4rem 0 4rem;
 }
 
+.gallery_container div {
+  flex: 1;
+  margin: 5px;
+}
 .gallery_container img {
-  transition: all 1s;
-  width: 250px;
-  height: 150px;
+  width: 100%;
   object-fit: cover;
-  object-position: bottom;
-  padding: 5px;
+  min-width: 240px;
+  height: 300px;
+  transition: all 2s;
 }
 
 .gallery_container img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .close_btn_gallery {
   position: fixed;
   top: 0;
-  right: 20px;
+  right: 10px;
   font-size: 2rem;
+  z-index: 999;
   font-weight: 600;
   cursor: pointer;
   color: var(--color-white);
