@@ -56,7 +56,7 @@
   font-weight: 600;
   display: inline-block;
   white-space: nowrap;
-  color: inherit;
+  color: black;
 }
 
 .memberships_tab {
@@ -161,8 +161,6 @@
   .memberships_tab--4 {
     margin: 0;
   }
-  .memberships_tab span {
-  }
 }
 
 @media screen and (max-width: 700px) {
@@ -202,6 +200,8 @@
     text-align: center;
     border-radius: 0.5rem;
     padding: 0.4rem 0.4rem;
+    font-weight: 700;
+    text-align: center;
   }
 
   .memberships_content {
@@ -209,8 +209,7 @@
     text-align: center;
   }
   .memberships_tab span {
-    margin-right: 0.5rem;
-    display: inline-block;
+    display: none;
   }
   #section--3 > .section_header__container {
     padding-bottom: 3rem;
