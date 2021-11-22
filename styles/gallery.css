@@ -1,6 +1,6 @@
 .gallery_overlay {
   position: fixed;
-  z-index: 12;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -14,14 +14,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1600px;
+  max-width: 1900px;
   margin: 0 auto;
   padding: 2rem 4rem 0 4rem;
 }
 
 .gallery_container div {
   flex: 1;
-  margin: 5px;
+  margin: 10px;
 }
 .gallery_container img {
   width: 100%;
@@ -44,4 +44,10 @@
   font-weight: 600;
   cursor: pointer;
   color: var(--color-white);
+}
+
+@media screen and (min-width: 400px) {
+  .close_btn_gallery {
+    right: 40px;
+  }
 }

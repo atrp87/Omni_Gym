@@ -120,7 +120,7 @@ navLinks.forEach((link) => {
 
     // Close mobile nav after section clicked
     navMenu.classList.toggle('active');
-    // return burger bars from cross
+    // return burger bars inactive
     mobileMenu.classList.toggle('is-active');
 
     const linkID = document.getElementById(link.getAttribute('data-link'));
@@ -167,7 +167,7 @@ openModalBtn.addEventListener('click', (e) => {
 
 closeModalBtn.addEventListener('click', () => {
   modal.style.display = 'none';
-  document.body.style.overflow = 'scroll';
+  document.body.style.overflowY = 'scroll';
 });
 
 window.addEventListener('click', (e) => {
@@ -195,16 +195,19 @@ tabsContainer.addEventListener('click', function (e) {
 services.forEach((service) => {
   service.addEventListener('click', () => {
     galleryOverlay.style.display = 'block ';
+    document.body.style.overflow = 'hidden';
   })
 });
 
 closeGalleryBtn.addEventListener('click', () => {
   galleryOverlay.style.display = 'none';
+  document.body.style.overflowY = 'scroll';
 });
 
 window.addEventListener('click', (e) => {
-  e.target === galleryOverlay ? galleryOverlay.style.display = 'none' : null
+  e.target === galleryModal ? galleryOverlay.style.display = 'none' : null
 });
+
 
 //// * FORM ERROR ////
 const showError = (input, msg) => {
