@@ -42,7 +42,6 @@ const tabsContent = document.querySelectorAll('.memberships_content');
 //   });
 // };
 
-
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
   mobileMenu.classList.toggle('is-active');
@@ -65,8 +64,6 @@ navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
 //// * STICKY NAV ////
-// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-// ? REVIEW Intersection Observer API **
 const stickyNav = (entries) => {
   const entry = entries[0];
   if (!entry.isIntersecting) {
@@ -102,7 +99,6 @@ allSections.forEach((section) => {
   section.classList.add('section--hidden');
 });
 
-
 //// * SCROLL VIEW ////
 headerScrollBtn.addEventListener('click', () => {
   section1.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -111,7 +107,6 @@ headerScrollBtn.addEventListener('click', () => {
 footerScrollBtn.addEventListener('click', () => {
   header.scrollIntoView({ behavior: 'smooth' });
 });
-
 
 //// * NAV SCROLL LINKS ////
 navLinks.forEach((link) => {
@@ -171,7 +166,12 @@ closeModalBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('click', (e) => {
-  e.target === modal ? modal.style.display = 'none' : null
+  if (e.target === modal) {
+    modal.style.display = 'none'
+    document.body.style.overflowY = 'scroll';
+  } else {
+    null
+  }
 });
 
 //// * MEMBER TAB ////
@@ -205,7 +205,12 @@ closeGalleryBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('click', (e) => {
-  e.target === galleryModal ? galleryOverlay.style.display = 'none' : null
+  if (e.target === galleryModal) {
+    galleryOverlay.style.display = 'none'
+    document.body.style.overflowY = 'scroll';
+  } else {
+    null
+  }
 });
 
 
@@ -262,6 +267,7 @@ async function handleSubmit(event) {
     form.reset()
   }).catch(error => {
     status.innerHTML = "Oops! Please fill out the required fields"
+
   });
 }
 form.addEventListener("submit", handleSubmit)

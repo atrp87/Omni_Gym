@@ -32,6 +32,13 @@ p {
 }
 
 /* ! GENERAL SECTIONS */
+
+#section--1,
+#section--3,
+#train--heroic {
+  background-color: #e0e0e0;
+}
+
 .section--hidden {
   opacity: 0;
   transform: translateY(8rem);

@@ -30,12 +30,36 @@
 }
 
 .memberships {
-  max-width: 200rem;
   padding-bottom: 4rem;
-  max-width: 1400px;
+  max-width: 1050px;
   background-color: #fff;
   margin: 0 auto;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 20px 20px;
+  position: relative;
+}
+
+.memberships_signup_btn {
+  position: absolute;
+  left: 45%;
+  bottom: 0;
+  padding-bottom: 1rem;
+}
+
+.memberships_signup_btn button {
+  border-radius: 2px;
+  background: var(--color-primary);
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.memberships_signup_btn button:hover {
+  cursor: pointer;
+  background-color: var(--color-sticky-nav);
+  border: 2px solid var(--color-primary);
+  color: inherit;
 }
 
 .memberships_tab_container {
@@ -84,10 +108,6 @@
 .memberships_content ul {
   list-style: none;
 }
-
-/* .empty_li {
-  visibility: hidden;
-} */
 
 .memberships_content li::before {
   content: "●";
@@ -154,6 +174,9 @@
   .memberships_tab {
     margin-right: 1rem;
     justify-content: center;
+  }
+  .memberships {
+    border-radius: 0;
   }
   .btn {
     padding: 1rem 1rem;
