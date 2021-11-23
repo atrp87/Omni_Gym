@@ -132,14 +132,14 @@ const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = function (entries, observer) {
   const [entry] = entries;
-
   if (!entry.isIntersecting) return;
 
   // Replace src with data-src
   entry.target.src = entry.target.dataset.src;
 
   entry.target.addEventListener('load', function () {
-    entry.target.classList.remove('lazy-img');
+    entry.target.classList.remove('lazy_img');
+
   });
 
   observer.unobserve(entry.target);
@@ -173,6 +173,14 @@ window.addEventListener('click', (e) => {
     null
   }
 });
+
+const openMemberSignUp = document.querySelector('.open_modal_member');
+openMemberSignUp.addEventListener('click', (e) => {
+  e.preventDefault()
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+})
+
 
 //// * MEMBER TAB ////
 tabsContainer.addEventListener('click', function (e) {

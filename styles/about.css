@@ -39,6 +39,10 @@
   max-width: 100%;
 }
 
+.lazy_img {
+  filter: blur(20px);
+}
+
 /* * add perform */
 /* .about_img {
   filter: blur(20px);

@@ -38,27 +38,23 @@
   position: relative;
 }
 
-.memberships_signup_btn {
+.memberships_signup_btn button {
   position: absolute;
   left: 45%;
-  bottom: 0;
-  padding-bottom: 1rem;
-}
-
-.memberships_signup_btn button {
+  bottom: 10px;
   border-radius: 2px;
   background: var(--color-primary);
   outline: none;
   border: none;
   color: #fff;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  padding: 0.6rem 0.7rem;
+  border: 2px solid var(--color-primary);
 }
 
 .memberships_signup_btn button:hover {
   cursor: pointer;
   background-color: var(--color-sticky-nav);
-  border: 2px solid var(--color-primary);
   color: inherit;
 }
 
@@ -244,5 +240,11 @@
   }
   .train_heroic_content img {
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .memberships_signup_btn button {
+    left: 40%;
   }
 }
