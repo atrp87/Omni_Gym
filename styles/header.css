@@ -52,6 +52,7 @@
 
 @media screen and (max-width: 768px) {
   .hero_container {
+    position: relative;
     display: grid;
     grid-template-columns: auto;
     align-items: center;
@@ -83,6 +84,7 @@
 
 @media screen and (max-width: 480px) {
   .hero_content {
+    position: relative;
     text-align: center;
     align-items: center;
     justify-self: center;
@@ -100,4 +102,11 @@
   .hero_btn a {
     margin-top: 2.5rem;
   }
+
+  /* #hero_img {
+    position: absolute;
+    display: block;
+    top: 65%;
+    width: 100%;
+  } */
 }

@@ -114,6 +114,10 @@
   display: block;
 }
 
+#my_form--status {
+  color: var(--error-color);
+}
+
 .modal_input {
   display: block;
   padding-left: 0.5rem;

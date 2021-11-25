@@ -32,9 +32,17 @@ const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
+// ? Semantic ( gallery alt) ++
+// ? Sections Color
+// ? scrollIntoView passes section on page load
+// ? Form error link
+// ? Logo @ bottom on mobile
+// ? On page refresh opacity 1 ( SESSION STORAGE )
+// ? Scroll animation mobile
+// ? Member Sign up button & mobile text color blue ?
 
-//// ! see session storage ////
-//// * Page Load Remove Opacity ////
+
+//// ! Page Load Remove Opacity ////
 // window.onload = () => {
 //   allSections.forEach((section) => {
 //     section.classList.remove('section--hidden');
@@ -42,13 +50,13 @@ const tabsContent = document.querySelectorAll('.memberships_content');
 //   });
 // };
 
-//// * Mobile Menu Toggle ////
+//// ! Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
   mobileMenu.classList.toggle('is-active');
   navMenu.classList.toggle('active');
 })
 
-//// * Nav & Mobile Menu Blur ////
+//// ! Nav & Mobile Menu Blur ////
 const handleHoverNav = function (e) {
   if (e.target.classList.contains('nav_links')) {
     const link = e.target;
@@ -63,7 +71,7 @@ const handleHoverNav = function (e) {
 navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
-//// * STICKY NAV ////
+//// ! STICKY NAV ////
 const stickyNav = (entries) => {
   const entry = entries[0];
   if (!entry.isIntersecting) {
@@ -80,7 +88,7 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 headerObserver.observe(header);
 
-//// * SECTION REVEAL ////
+//// ! SECTION REVEAL ////
 const revealSection = function (entries, observer) {
   const [entry] = entries;
   if (entry.isIntersecting) {
@@ -99,7 +107,7 @@ allSections.forEach((section) => {
   section.classList.add('section--hidden');
 });
 
-//// * SCROLL VIEW ////
+//// ! SCROLL VIEW ////
 headerScrollBtn.addEventListener('click', () => {
   section1.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
@@ -108,7 +116,7 @@ footerScrollBtn.addEventListener('click', () => {
   header.scrollIntoView({ behavior: 'smooth' });
 });
 
-//// * NAV SCROLL LINKS ////
+//// ! NAV SCROLL LINKS ////
 navLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault()
@@ -127,7 +135,7 @@ navLinks.forEach((link) => {
   })
 });
 
-//// * LAZY IMAGES ////
+//// ! LAZY IMAGES ////
 const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = function (entries, observer) {
@@ -141,7 +149,6 @@ const loadImg = function (entries, observer) {
     entry.target.classList.remove('lazy_img');
 
   });
-
   observer.unobserve(entry.target);
 };
 
@@ -153,7 +160,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 
 imgTargets.forEach(img => imgObserver.observe(img));
 
-//// * MODAL ////
+//// ! MODAL ////
 openModalBtn.addEventListener('click', (e) => {
   e.preventDefault()
   modal.style.display = 'block';
@@ -182,7 +189,7 @@ openMemberSignUp.addEventListener('click', (e) => {
 })
 
 
-//// * MEMBER TAB ////
+//// ! MEMBER TAB ////
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.memberships_tab');
   // Guard clause
@@ -199,7 +206,7 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 
-//// * GALLERY ////
+//// ! GALLERY ////
 services.forEach((service) => {
   service.addEventListener('click', () => {
     galleryOverlay.style.display = 'block ';
@@ -221,8 +228,14 @@ window.addEventListener('click', (e) => {
   }
 });
 
+//// ! FORM VALID ////
+// const showValid = input => {
+//   const formVal = input.parentElement;
+//   formVal.className = 'form_validation valid';
+// }
 
-//// * FORM ERROR ////
+
+//// ! FORM ERROR ////
 const showError = (input, msg) => {
   const formVal = input.parentElement;
   formVal.className = 'form_validation error';
@@ -231,25 +244,14 @@ const showError = (input, msg) => {
   errorMsg.innerText = msg;
 }
 
-// //// * FORM VALID ////
-// const showValid = input => {
-//   const formVal = input.parentElement;
-//   formVal.className = 'form_validation valid';
-// }
-
-//// * FORM REQUIRED FIELDS ////
+//// ! FORM REQUIRED FIELDS ////
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
-    if (input.value.trim() === '') {
-      showError(input, `* ${getFieldName(input)} is required`);
-    }
-    // else {
-    //   showValid(input)
-    // }
+    if (input.value.trim() === '') showError(input, `* ${getFieldName(input)} is required`);
   })
 }
 
-//// * FORM FIELD NAME ////
+//// ! FORM FIELD NAME ////
 const getFieldName = input => {
   return input.name.charAt(0).toUpperCase() + input.name.slice(1).replaceAll('_', ' ');
 }
@@ -259,11 +261,12 @@ form.addEventListener('submit', (e) => {
   checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
 })
 
-//// * FORMSPREE ////
+//// ! FORMSPREE ////
 async function handleSubmit(event) {
   event.preventDefault();
   let status = document.getElementById("my_form--status");
   const data = new FormData(event.target);
+
   fetch(event.target.action, {
     method: form.method,
     body: data,
@@ -271,7 +274,11 @@ async function handleSubmit(event) {
       'Accept': 'application/json'
     }
   }).then(response => {
-    status.innerHTML = "Thanks for your submission!";
+    if (response.ok) {
+      status.innerHTML = "Thanks for your submission!";
+    } else {
+      checkRequired()
+    }
     form.reset()
   }).catch(error => {
     status.innerHTML = "Oops! Please fill out the required fields"
