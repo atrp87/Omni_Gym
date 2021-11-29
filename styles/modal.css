@@ -92,13 +92,6 @@
   border-radius: 2px;
 }
 
-/* .form_validation.valid {
-  margin-bottom: 0.5rem;
-  position: relative;
-  border: 1px solid var(--valid-color);
-  border-radius: 2px;
-} */
-
 .form_validation p {
   font-size: 0.7rem;
   margin-top: 0.5rem;

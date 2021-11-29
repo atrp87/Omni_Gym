@@ -4,22 +4,20 @@
 const header = document.querySelector('.header');
 const section1 = document.querySelector('#section--1');
 const allSections = document.querySelectorAll('.section');
+const headerScrollBtn = document.querySelector('.hero_btn');
+const footerScrollBtn = document.querySelector('.footer_btn');
 //// * NAV ////
 const navbar = document.querySelector('.navbar');
 const navContainer = document.querySelector('.nav_container');
 const mobileMenu = document.querySelector('#mobile_menu');
 const navMenu = document.querySelector('.nav_menu');
 const navLinks = document.querySelectorAll('.nav_links');
-//// * SCROLL ////
-const headerScrollBtn = document.querySelector('.hero_btn');
-const footerScrollBtn = document.querySelector('.footer_btn');
 //// * MODAL ////
 const modal = document.getElementById('email_modal');
 const openModalBtn = document.querySelector('.nav_links_btn');
 const closeModalBtn = document.querySelector('.close_btn');
 //// * GALLERY ////
-const galleryOverlay = document.querySelector('.gallery_overlay');
-const galleryModal = document.querySelector('.gallery_container');
+const modalGallery = document.querySelector('.gallery_overlay');
 const services = document.querySelectorAll('.service_content');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
 //// * FORM ////
@@ -34,32 +32,21 @@ const tabsContent = document.querySelectorAll('.memberships_content');
 
 // ? Semantic ( gallery alt) ++
 // ? Sections Color
-// ? scrollIntoView passes section on page load
 // ? Form error link
-// ? Logo @ bottom on mobile
 // ? On page refresh opacity 1 ( SESSION STORAGE )
 // ? Scroll animation mobile
-// ? Member Sign up button & mobile text color blue ?
 
 
-//// ! Page Load Remove Opacity ////
-// window.onload = () => {
-//   allSections.forEach((section) => {
-//     section.classList.remove('section--hidden');
-//     section.style = 'transition: none;'
-//   });
-// };
-
-//// ! Mobile Menu Toggle ////
+//// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
   mobileMenu.classList.toggle('is-active');
   navMenu.classList.toggle('active');
 })
 
-//// ! Nav & Mobile Menu Blur ////
-const handleHoverNav = function (e) {
-  if (e.target.classList.contains('nav_links')) {
-    const link = e.target;
+//// * Nav & Mobile Menu Blur ////
+const handleHoverNav = function (evt) {
+  if (evt.target.classList.contains('nav_links')) {
+    const link = evt.target;
     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
     const logo = link.closest('.navbar').querySelector('#navbar_logo');
     siblings.forEach(el => {
@@ -71,7 +58,7 @@ const handleHoverNav = function (e) {
 navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
-//// ! STICKY NAV ////
+//// * STICKY NAV ////
 const stickyNav = (entries) => {
   const entry = entries[0];
   if (!entry.isIntersecting) {
@@ -88,9 +75,10 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 headerObserver.observe(header);
 
-//// ! SECTION REVEAL ////
+//// * SECTION REVEAL ////
 const revealSection = function (entries, observer) {
   const [entry] = entries;
+
   if (entry.isIntersecting) {
     entry.target.classList.remove('section--hidden');
     observer.unobserve(entry.target);
@@ -107,20 +95,41 @@ allSections.forEach((section) => {
   section.classList.add('section--hidden');
 });
 
-//// ! SCROLL VIEW ////
-headerScrollBtn.addEventListener('click', () => {
-  section1.scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
+// ! ADD NEW CLASS LIST POST LOAD
 
-footerScrollBtn.addEventListener('click', () => {
-  header.scrollIntoView({ behavior: 'smooth' });
-});
+// if (sessionStorage.getItem("isNewSession")) {
+//   console.log('welcome back');
+// } else {
+//   console.log('FIRST TIME');
+//   sessionStorage.setItem('isNewSession', 'true');
+// }
 
-//// ! NAV SCROLL LINKS ////
+// if (sessionStorage.getItem("isNewSession")) {
+//   allSections.forEach((section) => {
+//     section.style.transition = "all 0s";
+//     section.style.opacity = "1";
+//   });
+// } else {
+//   allSections.forEach((section) => {
+//     section.classList.add('section--hidden');
+//     sessionStorage.setItem('isNewSession', 'true');
+//   });
+// }
+
+
+
+
+//// * SCROLL VIEW ////
+const scrollSectionHandler = (location) => location.scrollIntoView({ behavior: 'smooth' });
+
+headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1))
+footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header))
+
+
+//// * NAV SCROLL LINKS ////
 navLinks.forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault()
-
+  link.addEventListener('click', (evt) => {
+    evt.preventDefault()
     // Close mobile nav after section clicked
     navMenu.classList.toggle('active');
     // return burger bars inactive
@@ -135,7 +144,7 @@ navLinks.forEach((link) => {
   })
 });
 
-//// ! LAZY IMAGES ////
+//// * LAZY IMAGES ////
 const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = function (entries, observer) {
@@ -160,80 +169,61 @@ const imgObserver = new IntersectionObserver(loadImg, {
 
 imgTargets.forEach(img => imgObserver.observe(img));
 
-//// ! MODAL ////
-openModalBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  modal.style.display = 'block';
+//// * MODAL & SERVICE GALLERY ////
+const openModal = function (modalType, evt) {
+  evt.preventDefault()
+  modalType.style.display = 'block';
   document.body.style.overflow = 'hidden';
-});
+};
 
-closeModalBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
+openModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
+services.forEach((service) => service.addEventListener('click', (evt) => openModal(modalGallery, evt)));
+
+const closeModal = function (close) {
+  close.style.display = 'none';
   document.body.style.overflowY = 'scroll';
-});
+};
+
+closeModalBtn.addEventListener('click', () => closeModal(modal));
+closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
+
+const escapeClose = function (evt, modalType) {
+  if (evt.key === 'Escape' && !modalType.style.display === 'none') {
+    closeModal();
+  }
+};
+
+document.addEventListener('keydown', () => closeModal(modal));
+document.addEventListener('keydown', () => closeModal(modalGallery));
 
 window.addEventListener('click', (e) => {
-  if (e.target === modal) {
+  if (e.target === modal || e.target === modalGallery) {
     modal.style.display = 'none'
+    modalGallery.style.display = 'none'
     document.body.style.overflowY = 'scroll';
   } else {
     null
   }
 });
 
-const openMemberSignUp = document.querySelector('.open_modal_member');
-openMemberSignUp.addEventListener('click', (e) => {
-  e.preventDefault()
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-})
+//// * MEMBER TAB ////
+tabsContainer.addEventListener('click', function (evt) {
+  const clicked = evt.target.closest('.memberships_tab');
 
-
-//// ! MEMBER TAB ////
-tabsContainer.addEventListener('click', function (e) {
-  const clicked = e.target.closest('.memberships_tab');
   // Guard clause
   if (!clicked) return;
+
   // Remove active classes
-  tabs.forEach(t => t.classList.remove('memberships_tab--active'));
-  tabsContent.forEach(c => c.classList.remove('memberships_content--active'));
+  tabs.forEach(tab => tab.classList.remove('memberships_tab--active'));
+  tabsContent.forEach(cont => cont.classList.remove('memberships_content--active'));
+
   // Activate tab
   clicked.classList.add('memberships_tab--active');
+
   // Activate content area
-  document
-    .querySelector(`.memberships_content--${clicked.dataset.tab}`)
+  document.querySelector(`.memberships_content--${clicked.dataset.tab}`)
     .classList.add('memberships_content--active');
 });
-
-
-//// ! GALLERY ////
-services.forEach((service) => {
-  service.addEventListener('click', () => {
-    galleryOverlay.style.display = 'block ';
-    document.body.style.overflow = 'hidden';
-  })
-});
-
-closeGalleryBtn.addEventListener('click', () => {
-  galleryOverlay.style.display = 'none';
-  document.body.style.overflowY = 'scroll';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === galleryModal) {
-    galleryOverlay.style.display = 'none'
-    document.body.style.overflowY = 'scroll';
-  } else {
-    null
-  }
-});
-
-//// ! FORM VALID ////
-// const showValid = input => {
-//   const formVal = input.parentElement;
-//   formVal.className = 'form_validation valid';
-// }
-
 
 //// ! FORM ERROR ////
 const showError = (input, msg) => {
@@ -262,12 +252,14 @@ form.addEventListener('submit', (e) => {
 })
 
 //// ! FORMSPREE ////
-async function handleSubmit(event) {
-  event.preventDefault();
+async function handleSubmit(evt) {
+  evt.preventDefault();
   let status = document.getElementById("my_form--status");
-  const data = new FormData(event.target);
+  console.log(status);
+  const data = new FormData(evt.target);
+  console.log(data);
 
-  fetch(event.target.action, {
+  fetch(evt.target.action, {
     method: form.method,
     body: data,
     headers: {

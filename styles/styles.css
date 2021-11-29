@@ -127,6 +127,7 @@ p {
   width: 80%;
   justify-self: end;
   list-style-type: none;
+  z-index: 10;
 }
 
 .nav_links {
