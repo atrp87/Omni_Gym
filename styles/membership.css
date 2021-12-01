@@ -30,7 +30,7 @@
 }
 
 .memberships {
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
   max-width: 1050px;
   background-color: #fff;
   margin: 0 auto;
@@ -84,16 +84,35 @@
   list-style: none;
 }
 
-.memberships_content li::before {
-  content: "●";
-  color: var(--color-primary);
-  margin-right: 7px;
+.bronze_member_empty_li {
+  visibility: hidden;
 }
-
 .memberships_content--active {
   display: flex;
   flex-direction: column;
   text-align: center;
+  position: relative;
+}
+
+.membership_sign_up {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.membership_sign_up button {
+  background: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.membership_sign_up button:hover {
+  background-color: var(--color-sticky-nav);
+  transition: all 0.3s ease-out;
+  color: inherit;
 }
 
 .memberships_header {
@@ -102,18 +121,11 @@
   padding-bottom: 1rem;
 }
 
-.bronze_last_li {
-  visibility: hidden;
-}
-
-.list_content {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .memberships_list {
   padding: 1rem;
-  text-align: left;
+  text-align: center;
+  line-height: 1.7rem;
+  font-weight: 400;
 }
 
 /* * TRAIN HEROIC */

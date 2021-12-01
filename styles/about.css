@@ -43,11 +43,6 @@
   filter: blur(20px);
 }
 
-/* * add perform */
-/* .about_img {
-  filter: blur(20px);
-} */
-
 @media screen and (min-width: 1500px) {
   .about_contents {
     padding: 3rem 1.35rem 4rem 1.35rem;
