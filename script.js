@@ -32,8 +32,6 @@ const tabsContent = document.querySelectorAll('.memberships_content');
 // ? TIDY CODE & NAMES
 // ? modal escp key
 // ? LAZY LOADING ( IMAGES ON REFRESH )
-// ? align member ship
-// ? header text color graphic( see JS COURCE )
 
 // ! whast a website needs
 

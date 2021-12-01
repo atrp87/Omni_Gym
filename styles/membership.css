@@ -13,6 +13,7 @@
   border-radius: 10rem;
   cursor: pointer;
   transition: all 0.3s;
+  color: black;
   /* removes blue square on button press ISO */
   -webkit-tap-highlight-color: transparent;
 }
