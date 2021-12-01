@@ -6,12 +6,13 @@
   width: 80%;
   margin: 0 auto;
   height: 90vh;
+  max-width: 2300px;
 }
 
 .hero_content {
   justify-self: start;
   margin-left: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .hero_content h1 {
@@ -80,6 +81,25 @@
   #hero_img {
     display: none;
   }
+
+  .highlight {
+    position: relative;
+  }
+
+  .highlight::after {
+    display: block;
+    background-color: aqua;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    transform: scale(1.07, 1.05) skewX(-15deg);
+    background-color: var(--color-primary);
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -102,11 +122,4 @@
   .hero_btn a {
     margin-top: 2.5rem;
   }
-
-  /* #hero_img {
-    position: absolute;
-    display: block;
-    top: 65%;
-    width: 100%;
-  } */
 }

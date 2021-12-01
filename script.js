@@ -1,4 +1,5 @@
 'use strict';
+
 const header = document.querySelector('.header');
 const section1 = document.querySelector('#section--1');
 const allSections = document.querySelectorAll('.section');
@@ -25,13 +26,15 @@ const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
-// ? Semantic ( gallery alt) ++
 // ? Form error link
 // ? Scroll animation mobile
-// ? lazy image refresh
+// ? ONload animation scrolls pas view
 // ? TIDY CODE & NAMES
 // ? modal escp key
-// ? gallery images
+// ? LAZY LOADING ( IMAGES ON REFRESH )
+// ? align member ship
+// ? header text color graphic( see JS COURCE )
+
 // ! whast a website needs
 
 // ! TIDY NAMES & CODE ( HTML CSS JS)
@@ -174,7 +177,7 @@ closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
 
 window.addEventListener('keydown', function (event) {
   if (event.key == 'Escape') {
-    closeModal(modal, modalGallery, modal);
+    closeModal(modal, modalGallery);
   }
 });
 
