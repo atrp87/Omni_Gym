@@ -84,15 +84,6 @@ p {
   margin-bottom: 1rem;
 }
 
-.section_contents {
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-  padding: 3rem 3rem;
-}
-
 .section_content h2 {
   font-size: 2rem;
   line-height: 1.3;

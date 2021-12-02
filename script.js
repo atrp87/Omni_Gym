@@ -21,23 +21,18 @@ const closeGalleryBtn = document.querySelector('.close_btn_gallery');
 const form = document.getElementById('form');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
+const phoneNumber = document.getElementById('phone_number');
+const address1 = document.getElementById('address_1');
+const town = document.getElementById('town');
+const postCode = document.getElementById('post_code');
 const message = document.getElementById('message');
 const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
 
-// ? Form error link
-// ? Scroll animation mobile
-// ? ONload animation scrolls pas view
-// ? TIDY CODE & NAMES
-// ? modal escp key
+// ? FORM ( ERROR LINK SUBMIT OR NOT)
 // ? LAZY LOADING ( IMAGES ON REFRESH )
-
-// ! whast a website needs
-
-// ! TIDY NAMES & CODE ( HTML CSS JS)
-
-
+// format html
 
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
@@ -45,7 +40,7 @@ mobileMenu.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 })
 
-//// * Nav & Mobile Menu Blur ////
+//// * Nav Blur ////
 const handleHoverNav = function (evt) {
   if (evt.target.classList.contains('nav_links')) {
     const link = evt.target;
@@ -60,7 +55,7 @@ const handleHoverNav = function (evt) {
 navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
-//// * STICKY NAV ////
+//// * Sticky Nav ////
 const stickyNav = (entries) => {
   const entry = entries[0];
   if (!entry.isIntersecting) {
@@ -76,7 +71,7 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 headerObserver.observe(header);
 
-//// * SECTION REVEAL ////
+//// * Section Reveal ////
 const revealSection = (entries, observer) => {
   const [entry] = entries;
 
@@ -105,12 +100,11 @@ if (sessionStorage.getItem("isNewSession")) {
   sessionStorage.setItem('isNewSession', 'true');
 };
 
-//// * SCROLL VIEW ////
+//// * Scroll ////
 const scrollSectionHandler = (location) => location.scrollIntoView({ behavior: 'smooth' });
 headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1))
 footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header))
 
-//// * NAV SCROLL LINKS ////
 navLinks.forEach((link) => {
   link.addEventListener('click', (evt) => {
     evt.preventDefault()
@@ -128,7 +122,7 @@ navLinks.forEach((link) => {
   })
 });
 
-//// * LAZY IMAGES ////
+//// * Lazy Imgs ////
 const loadImg = (entries, observer) => {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
@@ -151,7 +145,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 
 imgTargets.forEach(img => imgObserver.observe(img));
 
-//// * MODAL'S & SERVICE GALLERY ////
+//// * Modal & Service ////
 const openModal = function (modal, evt) {
   evt.preventDefault()
   modal.style.display = 'block';
@@ -163,19 +157,17 @@ openMemberModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
 allServices.forEach((service) => service.addEventListener('click', (evt) => openModal(modalGallery, evt)));
 
 const closeModal = function (modal) {
-  console.log(modal);
   modal.style.display = 'none';
   document.body.style.overflowY = 'scroll';
 };
 
-
 closeModalBtn.addEventListener('click', () => closeModal(modal));
 closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
 
-
 window.addEventListener('keydown', function (event) {
   if (event.key == 'Escape') {
-    closeModal(modal, modalGallery);
+    closeModal(modal);
+    closeModal(modalGallery);
   }
 });
 
@@ -189,7 +181,7 @@ window.addEventListener('click', (e) => {
   }
 });
 
-//// * MEMBER TAB ////
+//// * Membership Tab ////
 tabsContainer.addEventListener('click', (evt) => {
   const clicked = evt.target.closest('.memberships_tab');
   // Guard clause
@@ -225,10 +217,10 @@ const getFieldName = input => {
   return input.name.charAt(0).toUpperCase() + input.name.slice(1).replaceAll('_', ' ');
 }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
-})
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
+// })
 
 //// ! FORMSPREE ////
 async function handleSubmit(evt) {
@@ -245,11 +237,8 @@ async function handleSubmit(evt) {
       'Accept': 'application/json'
     }
   }).then(response => {
-    if (response.ok) {
-      checkRequired()
-    } else {
-      status.innerHTML = "Thanks for your submission!";
-    }
+    checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
+    status.innerHTML = "Thanks for your submission!";
     form.reset()
   }).catch(error => {
     status.innerHTML = "Oops! Please fill out the required fields"
@@ -257,3 +246,4 @@ async function handleSubmit(evt) {
   });
 }
 form.addEventListener("submit", handleSubmit)
+

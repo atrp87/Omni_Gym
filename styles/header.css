@@ -39,11 +39,6 @@
   transition: all 0.3s;
 }
 
-.hero_btn a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
 #hero_img {
   height: 80%;
   width: 80%;
@@ -117,9 +112,5 @@
   .hero_content p {
     font-size: 1.2rem;
     margin-top: 0.5rem;
-  }
-
-  .hero_btn a {
-    margin-top: 2.5rem;
   }
 }
