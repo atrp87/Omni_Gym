@@ -18,27 +18,22 @@ const closeModalBtn = document.querySelector('.close_btn');
 const modalGallery = document.querySelector('.gallery_overlay');
 const allServices = document.querySelectorAll('.service_content');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
-const form = document.getElementById('form');
-const name = document.getElementById('name');
-const email = document.getElementById('email');
-const phoneNumber = document.getElementById('phone_number');
-const address1 = document.getElementById('address_1');
-const town = document.getElementById('town');
-const postCode = document.getElementById('post_code');
-const message = document.getElementById('message');
+const form = document.querySelector("form[name='contact_form']");
+const nameInput = document.querySelector("input[name='name']");
+const emailInput = document.querySelector("input[name='email']");
+const phoneInput = document.querySelector("input[name='phone']");
+const addressInput = document.querySelector("input[name='address']");
+const townInput = document.querySelector("input[name='town']");
+const postCodeInput = document.querySelector("input[name='post_code']");
 const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
-
-// ? FORM ( ERROR LINK SUBMIT OR NOT)
-// ? LAZY LOADING ( IMAGES ON REFRESH )
-// format html
 
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
   mobileMenu.classList.toggle('is-active');
   navMenu.classList.toggle('active');
-})
+});
 
 //// * Nav Blur ////
 const handleHoverNav = function (evt) {
@@ -51,24 +46,29 @@ const handleHoverNav = function (evt) {
     })
     logo.style.opacity = this;
   };
-}
+};
+
+
 navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
 //// * Sticky Nav ////
 const stickyNav = (entries) => {
+
   const entry = entries[0];
+
   if (!entry.isIntersecting) {
     navContainer.classList.add('sticky');
   } else {
     navContainer.classList.remove('sticky');
-  }
+  };
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0.1,
 });
+
 headerObserver.observe(header);
 
 //// * Section Reveal ////
@@ -102,8 +102,8 @@ if (sessionStorage.getItem("isNewSession")) {
 
 //// * Scroll ////
 const scrollSectionHandler = (location) => location.scrollIntoView({ behavior: 'smooth' });
-headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1))
-footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header))
+headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1));
+footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header));
 
 navLinks.forEach((link) => {
   link.addEventListener('click', (evt) => {
@@ -119,14 +119,14 @@ navLinks.forEach((link) => {
     } else {
       linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  })
+  });
 });
 
-//// * Lazy Imgs ////
+//// * Lazy Image ////
 const loadImg = (entries, observer) => {
   const [entry] = entries;
-  if (!entry.isIntersecting) return;
 
+  if (!entry.isIntersecting) return;
   // Replace img src with data-src
   entry.target.src = entry.target.dataset.src;
 
@@ -164,15 +164,15 @@ const closeModal = function (modal) {
 closeModalBtn.addEventListener('click', () => closeModal(modal));
 closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
 
-window.addEventListener('keydown', function (event) {
-  if (event.key == 'Escape') {
+window.addEventListener('keydown', function (evt) {
+  if (evt.key == 'Escape') {
     closeModal(modal);
     closeModal(modalGallery);
   }
 });
 
-window.addEventListener('click', (e) => {
-  if (e.target === modal || e.target === modalGallery) {
+window.addEventListener('click', (evt) => {
+  if (evt.target === modal || evt.target === modalGallery) {
     modal.style.display = 'none'
     modalGallery.style.display = 'none'
     document.body.style.overflowY = 'scroll';
@@ -186,64 +186,99 @@ tabsContainer.addEventListener('click', (evt) => {
   const clicked = evt.target.closest('.memberships_tab');
   // Guard clause
   if (!clicked) return;
+
   // Remove active classes
   tabs.forEach(tab => tab.classList.remove('memberships_tab--active'));
   tabsContent.forEach(cont => cont.classList.remove('memberships_content--active'));
+
   // Activate tab
   clicked.classList.add('memberships_tab--active');
+
   // Activate content area
   document.querySelector(`.memberships_content--${clicked.dataset.tab}`)
     .classList.add('memberships_content--active');
 });
 
-//// ! FORM ERROR ////
-const showError = (input, msg) => {
-  const formVal = input.parentElement;
-  formVal.className = 'form_validation error';
+//// * Form ////
+nameInput.isValid = () => !!nameInput.value;
+emailInput.isValid = () => isValidEmail(emailInput.value);
+phoneInput.isValid = () => isValidPhone(phoneInput.value);
+addressInput.isValid = () => !!addressInput.value;
+townInput.isValid = () => !!townInput.value;
+postCodeInput.isValid = () => isValidPostCode(postCodeInput.value);
 
-  const errorMsg = formVal.querySelector('p');
-  errorMsg.innerText = msg;
-}
+const inputFields = [nameInput, emailInput, phoneInput, , addressInput, townInput, postCodeInput];
 
-//// ! FORM REQUIRED FIELDS ////
-function checkRequired(inputArr) {
-  inputArr.forEach(input => {
-    if (input.value.trim() === '') showError(input, `* ${getFieldName(input)} is required`);
-  })
-}
+const isValidEmail = (email) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
 
-//// ! FORM FIELD NAME ////
-const getFieldName = input => {
-  return input.name.charAt(0).toUpperCase() + input.name.slice(1).replaceAll('_', ' ');
-}
+const isValidPhone = (phone) => {
+  const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  return re.test(String(phone).toLowerCase());
+};
 
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
-// })
+const isValidPostCode = (code) => {
+  const re = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
+  return re.test(String(code).toLowerCase());
+};
 
-//// ! FORMSPREE ////
-async function handleSubmit(evt) {
-  evt.preventDefault();
-  let status = document.getElementById("my_form--status");
-  console.log(status);
-  const data = new FormData(evt.target);
-  console.log(data);
+let shouldValidate = false;
+let isFormValid = false;
 
-  fetch(evt.target.action, {
-    method: form.method,
-    body: data,
-    headers: {
-      'Accept': 'application/json'
+const validateInputs = () => {
+
+  if (!shouldValidate) return;
+
+  isFormValid = true;
+  inputFields.forEach((input) => {
+    input.classList.remove("invalid");
+    input.nextElementSibling.classList.add("hide");
+
+    if (!input.isValid()) {
+      input.classList.add("invalid");
+      isFormValid = false;
+      input.nextElementSibling.classList.remove("hide");
     }
-  }).then(response => {
-    checkRequired([name, surname, email, phone_number, address_1, town, post_code]);
-    status.innerHTML = "Thanks for your submission!";
-    form.reset()
-  }).catch(error => {
-    status.innerHTML = "Oops! Please fill out the required fields"
-
   });
-}
-form.addEventListener("submit", handleSubmit)
+};
+
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  shouldValidate = true;
+  validateInputs();
+  if (isFormValid) {
+
+    let status = document.getElementById("my_form--status");
+
+    const data = new FormData(evt.target);
+
+    fetch(evt.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      status.style.color = 'green'
+      status.style.fontSize = '1rem'
+      status.style.paddingBottom = '1rem'
+      status.style.fontWeight = '500'
+      status.style.textAlign = 'center'
+      status.innerHTML = "Thanks for your submission!";
+      form.reset();
+    }).catch(error => {
+      status.style.color = 'red'
+      status.style.fontSize = '1rem'
+      status.style.paddingBottom = '1rem'
+      status.style.fontWeight = '500'
+      status.style.textAlign = 'center'
+      status.innerHTML = "Oops! Something went wrong"
+      console.log("Error", error);
+    });
+  }
+});
+
+inputFields.forEach((input) => input.addEventListener("input", validateInputs));
 
