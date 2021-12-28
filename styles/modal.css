@@ -38,7 +38,7 @@
 
 .modal_content {
   background: #f3f3f3;
-  margin: 2% auto;
+  margin: 5% auto;
   width: 90%;
   max-width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -156,5 +156,6 @@
     grid-template-columns: 1fr;
     width: 80%;
     margin: 0 auto;
+    gap: 0;
   }
 }

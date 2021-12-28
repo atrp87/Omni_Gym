@@ -266,7 +266,7 @@ form.addEventListener("submit", (evt) => {
       status.style.paddingBottom = '1rem'
       status.style.fontWeight = '500'
       status.style.textAlign = 'center'
-      status.innerHTML = "Thanks for your submission!";
+      status.innerHTML = "Thanks for your submission";
       form.reset();
     }).catch(error => {
       status.style.color = 'red'
@@ -275,7 +275,6 @@ form.addEventListener("submit", (evt) => {
       status.style.fontWeight = '500'
       status.style.textAlign = 'center'
       status.innerHTML = "Oops! Something went wrong"
-      console.log("Error", error);
     });
   }
 });
