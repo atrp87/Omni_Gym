@@ -28,6 +28,7 @@ const postCodeInput = document.querySelector("input[name='post_code']");
 const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
+let formMessage = document.getElementById("my_form--status");
 
 //// * Mobile Menu Toggle ////
 mobileMenu.addEventListener('click', () => {
@@ -47,7 +48,6 @@ const handleHoverNav = function (evt) {
     logo.style.opacity = this;
   };
 };
-
 
 navbar.addEventListener('mouseover', handleHoverNav.bind(0.5));
 navbar.addEventListener('mouseout', handleHoverNav.bind(1));
@@ -153,7 +153,9 @@ const openModal = function (modal, evt) {
 };
 
 openNavModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
+
 openMemberModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
+
 allServices.forEach((service) => service.addEventListener('click', (evt) => openModal(modalGallery, evt)));
 
 const closeModal = function (modal) {
@@ -162,6 +164,7 @@ const closeModal = function (modal) {
 };
 
 closeModalBtn.addEventListener('click', () => closeModal(modal));
+
 closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
 
 window.addEventListener('keydown', function (evt) {
@@ -241,16 +244,24 @@ const validateInputs = () => {
       isFormValid = false;
       input.nextElementSibling.classList.remove("hide");
     }
+    renderError('Please make sure all inputs are valid and filled in !')
   });
 };
+
+const renderError = (errorMsg) => {
+  formMessage.style.color = 'red'
+  formMessage.style.fontSize = '1rem'
+  formMessage.style.paddingBottom = '1rem'
+  formMessage.style.fontWeight = '500'
+  formMessage.style.textAlign = 'center'
+  formMessage.innerText = `${errorMsg}`
+}
 
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
   shouldValidate = true;
   validateInputs();
   if (isFormValid) {
-
-    let status = document.getElementById("my_form--status");
 
     const data = new FormData(evt.target);
 
@@ -261,20 +272,15 @@ form.addEventListener("submit", (evt) => {
         'Accept': 'application/json'
       }
     }).then(response => {
-      status.style.color = 'green'
-      status.style.fontSize = '1rem'
-      status.style.paddingBottom = '1rem'
-      status.style.fontWeight = '500'
-      status.style.textAlign = 'center'
-      status.innerHTML = "Thanks for your submission";
+      formMessage.style.color = 'green'
+      formMessage.style.fontSize = '1rem'
+      formMessage.style.paddingBottom = '1rem'
+      formMessage.style.fontWeight = '500'
+      formMessage.style.textAlign = 'center'
+      formMessage.innerHTML = "Thanks for your submission";
       form.reset();
     }).catch(error => {
-      status.style.color = 'red'
-      status.style.fontSize = '1rem'
-      status.style.paddingBottom = '1rem'
-      status.style.fontWeight = '500'
-      status.style.textAlign = 'center'
-      status.innerHTML = "Oops! Something went wrong"
+      renderError(`Something went wrong. ${error}. Try again!`)
     });
   }
 });
