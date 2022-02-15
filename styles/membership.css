@@ -107,8 +107,10 @@
 
 .memberships_header {
   font-size: 1.8rem;
-  font-weight: 500;
   padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-primary-darker);
+  width: 30%;
+  align-self: center;
 }
 
 .memberships_list {

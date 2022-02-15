@@ -39,13 +39,16 @@ mobileMenu.addEventListener('click', () => {
 //// * Nav Blur ////
 const handleHoverNav = function (evt) {
   if (evt.target.classList.contains('nav_links')) {
+
     const link = evt.target;
     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
     const logo = link.closest('.navbar').querySelector('#navbar_logo');
+
     siblings.forEach(el => {
       if (el !== link) el.style.opacity = this;
-    })
+    });
     logo.style.opacity = this;
+
   };
 };
 
@@ -54,11 +57,11 @@ navbar.addEventListener('mouseout', handleHoverNav.bind(1));
 
 //// * Sticky Nav ////
 const stickyNav = (entries) => {
-
   const entry = entries[0];
 
   if (!entry.isIntersecting) {
     navContainer.classList.add('sticky');
+
   } else {
     navContainer.classList.remove('sticky');
   };
@@ -76,17 +79,18 @@ const revealSection = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
-
   entry.target.classList.remove('section--hidden');
+
   observer.unobserve(entry.target);
 };
 
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: 0.15,
+  threshold: 0.12,
 });
 
-if (sessionStorage.getItem("isNewSession")) {
+// On refresh disable animations
+if (sessionStorage.getItem('isNewSession')) {
   allSections.forEach((section) => {
     sectionObserver.observe(section);
     section.classList.add('section--onload');
@@ -100,13 +104,16 @@ if (sessionStorage.getItem("isNewSession")) {
   sessionStorage.setItem('isNewSession', 'true');
 };
 
-//// * Scroll ////
+//// * Section Scroll ////
 const scrollSectionHandler = (location) => location.scrollIntoView({ behavior: 'smooth' });
+
 headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1));
+
 footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header));
 
 navLinks.forEach((link) => {
   link.addEventListener('click', (evt) => {
+
     evt.preventDefault()
     // Close mobile nav after section clicked
     navMenu.classList.toggle('active');
@@ -116,6 +123,7 @@ navLinks.forEach((link) => {
     const linkID = document.getElementById(link.getAttribute('data-link'));
     if (linkID === null) {
       return;
+
     } else {
       linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -123,9 +131,11 @@ navLinks.forEach((link) => {
 });
 
 //// * Lazy Image ////
+// ? Load images on page refresh
 const loadImg = (entries, observer) => {
   const [entry] = entries;
 
+  // entry.isIntersecting - true / false
   if (!entry.isIntersecting) return;
   // Replace img src with data-src
   entry.target.src = entry.target.dataset.src;
@@ -139,7 +149,7 @@ const loadImg = (entries, observer) => {
 
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
-  threshold: 0,
+  threshold: 0.1,
   rootMargin: '200px',
 });
 
@@ -147,7 +157,8 @@ imgTargets.forEach(img => imgObserver.observe(img));
 
 //// * Modal & Service ////
 const openModal = function (modal, evt) {
-  evt.preventDefault()
+  evt.preventDefault();
+
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
 };
@@ -179,8 +190,6 @@ window.addEventListener('click', (evt) => {
     modal.style.display = 'none'
     modalGallery.style.display = 'none'
     document.body.style.overflowY = 'scroll';
-  } else {
-    null
   }
 });
 
@@ -243,26 +252,27 @@ const validateInputs = () => {
       input.classList.add("invalid");
       isFormValid = false;
       input.nextElementSibling.classList.remove("hide");
-    }
-    renderError('Please make sure all inputs are valid and filled in !')
+      renderError('Please make sure all inputs are valid and filled in !')
+    };
   });
 };
 
 const renderError = (errorMsg) => {
-  formMessage.style.color = 'red'
-  formMessage.style.fontSize = '1rem'
-  formMessage.style.paddingBottom = '1rem'
-  formMessage.style.fontWeight = '500'
-  formMessage.style.textAlign = 'center'
-  formMessage.innerText = `${errorMsg}`
-}
+  formMessage.style.color = 'red';
+  formMessage.style.fontSize = '1rem';
+  formMessage.style.paddingBottom = '1rem';
+  formMessage.style.fontWeight = '500';
+  formMessage.style.textAlign = 'center';
+  formMessage.innerText = `${errorMsg}`;
+};
 
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
   shouldValidate = true;
-  validateInputs();
-  if (isFormValid) {
 
+  validateInputs();
+
+  if (isFormValid) {
     const data = new FormData(evt.target);
 
     fetch(evt.target.action, {
@@ -272,17 +282,17 @@ form.addEventListener("submit", (evt) => {
         'Accept': 'application/json'
       }
     }).then(response => {
-      formMessage.style.color = 'green'
-      formMessage.style.fontSize = '1rem'
-      formMessage.style.paddingBottom = '1rem'
-      formMessage.style.fontWeight = '500'
-      formMessage.style.textAlign = 'center'
-      formMessage.innerHTML = "Thanks for your submission";
+      formMessage.style.color = 'green';
+      formMessage.style.fontSize = '1rem';
+      formMessage.style.paddingBottom = '1rem';
+      formMessage.style.fontWeight = '500';
+      formMessage.style.textAlign = 'center';
+      formMessage.innerHTML = "Thanks for your submission !";
       form.reset();
     }).catch(error => {
       renderError(`Something went wrong. ${error}. Try again!`)
     });
-  }
+  };
 });
 
 inputFields.forEach((input) => input.addEventListener("input", validateInputs));
