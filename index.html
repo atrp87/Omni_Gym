@@ -382,7 +382,7 @@
     </div>
   </div>
   <!-- ! MODAL -->
-  <div class="modal" id="email_modal" style="display: block;">
+  <div class="modal" id="email_modal">
     <div class="modal_content">
       <span class="close_btn">&times;</span>
       <div class="modal-header">
@@ -396,22 +396,22 @@
         <div class="form_content">
           <div class="form_control">
             <label for="name">Full Name*</label>
-            <input name="name" id="name"  placeholder="First and Last Name" />
-            <div class="error hide"><strong>Name is required</strong></div>
+            <input name="name" id="name"  placeholder="First and Last Name" required/>
+            <div class="error hide"><strong>required</strong></div>
           </div>
           <div class="form_control">
             <label for="email">Email*</label>
             <input name="email" id="email" placeholder="e.g. omnifitness@hotmail.co.uk" />
-            <div class="error hide"><strong>Email is required</strong></div>
+            <div class="error hide"><strong>required</strong></div>
           </div>
           <div class="form_control">
             <label for="phone">Phone Number*</label>
-            <input name="phone" id="phone" placeholder="+447711..."  ></input>
-            <div class="error hide"><strong>Phone number is required</strong></div>
+            <input name="phone" id="phone" placeholder="+447711..." required></input>
+            <div class="error hide"><strong>required</strong></div>
           </div>
           <div class="form_control">
             <label for="address">Address</label>
-            <input name="address" id="address" placeholder="Unit 5 Elm Ct, Cavalry Park"  ></input>
+            <input name="address" id="address" placeholder="Unit 5 Elm Ct, Cavalry Park"></input>
           </div>
           <div class="form_control">
             <label for="town">Town</label>
@@ -419,7 +419,7 @@
           </div>
           <div class="form_control">
             <label for="post_code">Post Code*</label>
-            <input name="post_code" id="post_code"  placeholder="EH45 9BU"  ></input>
+            <input name="post_code" id="post_code"  placeholder="EH45 9BU" required></input>
             <div class="error hide"><strong>Post Code is required</strong></div>
           </div>
         </div>
