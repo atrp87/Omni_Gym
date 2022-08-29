@@ -382,7 +382,7 @@
     </div>
   </div>
   <!-- ! MODAL -->
-  <div class="modal" id="email_modal">
+  <div class="modal" id="email_modal" style="display: block;">
     <div class="modal_content">
       <span class="close_btn">&times;</span>
       <div class="modal-header">
@@ -395,34 +395,32 @@
       <form name="contact_form" action="https://formspree.io/f/xbjqvypn" method="POST">
         <div class="form_content">
           <div class="form_control">
-            <label for="name">Full Name</label>
-            <input name="name" id="name"  placeholder="First and Last Name" required />
-            <div class="error hide">Name is required</div>
+            <label for="name">Full Name*</label>
+            <input name="name" id="name"  placeholder="First and Last Name" />
+            <div class="error hide"><strong>Name is required</strong></div>
           </div>
           <div class="form_control">
-            <label for="email">Email</label>
-            <input name="email" id="email" placeholder="e.g. omnifitness@hotmail.co.uk" required />
-            <div class="error hide">Email is required</div>
+            <label for="email">Email*</label>
+            <input name="email" id="email" placeholder="e.g. omnifitness@hotmail.co.uk" />
+            <div class="error hide"><strong>Email is required</strong></div>
           </div>
           <div class="form_control">
-            <label for="phone">Phone Number</label>
-            <input name="phone" id="phone" placeholder="+447711..." required ></input>
-            <div class="error hide">Phone is required</div>
+            <label for="phone">Phone Number*</label>
+            <input name="phone" id="phone" placeholder="+447711..."  ></input>
+            <div class="error hide"><strong>Phone number is required</strong></div>
           </div>
           <div class="form_control">
             <label for="address">Address</label>
-            <input name="address" id="address" placeholder="Unit 5 Elm Ct, Cavalry Park" required ></input>
-            <div class="error hide">Address is required</div>
+            <input name="address" id="address" placeholder="Unit 5 Elm Ct, Cavalry Park"  ></input>
           </div>
           <div class="form_control">
             <label for="town">Town</label>
-            <input name="town" id="town" placeholder="Peebles" required ></input>
-            <div class="error hide">Town is required</div>
+            <input name="town" id="town" placeholder="Peebles"></input>
           </div>
           <div class="form_control">
-            <label for="post_code">Post Code</label>
-            <input name="post_code" id="post_code"  placeholder="EH45 9BU" required ></input>
-            <div class="error hide">Post Code is required</div>
+            <label for="post_code">Post Code*</label>
+            <input name="post_code" id="post_code"  placeholder="EH45 9BU"  ></input>
+            <div class="error hide"><strong>Post Code is required</strong></div>
           </div>
         </div>
         <div class="form_btn_container">

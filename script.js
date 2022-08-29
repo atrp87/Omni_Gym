@@ -19,12 +19,6 @@ const modalGallery = document.querySelector('.gallery_overlay');
 const allServices = document.querySelectorAll('.service_content');
 const closeGalleryBtn = document.querySelector('.close_btn_gallery');
 const form = document.querySelector("form[name='contact_form']");
-const nameInput = document.querySelector("input[name='name']");
-const emailInput = document.querySelector("input[name='email']");
-const phoneInput = document.querySelector("input[name='phone']");
-const addressInput = document.querySelector("input[name='address']");
-const townInput = document.querySelector("input[name='town']");
-const postCodeInput = document.querySelector("input[name='post_code']");
 const tabs = document.querySelectorAll('.memberships_tab');
 const tabsContainer = document.querySelector('.memberships_tab_container');
 const tabsContent = document.querySelectorAll('.memberships_content');
@@ -37,10 +31,10 @@ mobileMenu.addEventListener('click', () => {
 });
 
 //// * Nav Blur ////
-const handleHoverNav = function (evt) {
-  if (evt.target.classList.contains('nav_links')) {
+const handleHoverNav = function (e) {
+  if (e.target.classList.contains('nav_links')) {
 
-    const link = evt.target;
+    const link = e.target;
     const siblings = link.closest('.navbar').querySelectorAll('.nav_links');
     const logo = link.closest('.navbar').querySelector('#navbar_logo');
 
@@ -89,7 +83,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
   threshold: 0.12,
 });
 
-// On refresh disable animations
+//// * On refresh disable animations ////
 if (sessionStorage.getItem('isNewSession')) {
   allSections.forEach((section) => {
     sectionObserver.observe(section);
@@ -112,9 +106,8 @@ headerScrollBtn.addEventListener('click', () => scrollSectionHandler(section1));
 footerScrollBtn.addEventListener('click', () => scrollSectionHandler(header));
 
 navLinks.forEach((link) => {
-  link.addEventListener('click', (evt) => {
-
-    evt.preventDefault()
+  link.addEventListener('click', (e) => {
+    e.preventDefault()
     // Close mobile nav after section clicked
     navMenu.classList.toggle('active');
     // return burger bars inactive
@@ -123,10 +116,9 @@ navLinks.forEach((link) => {
     const linkID = document.getElementById(link.getAttribute('data-link'));
     if (linkID === null) {
       return;
-
     } else {
       linkID.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    };
   });
 });
 
@@ -156,18 +148,16 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 //// * Modal & Service ////
-const openModal = function (modal, evt) {
-  evt.preventDefault();
+const openModal = (modal) => {
 
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
 };
 
-openNavModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
+openNavModalBtn.addEventListener('click', (e) => openModal(modal, e));
+openMemberModalBtn.addEventListener('click', (e) => openModal(modal, e));
 
-openMemberModalBtn.addEventListener('click', (evt) => openModal(modal, evt));
-
-allServices.forEach((service) => service.addEventListener('click', (evt) => openModal(modalGallery, evt)));
+allServices.forEach((service) => service.addEventListener('click', (e) => openModal(modalGallery, e)));
 
 const closeModal = function (modal) {
   modal.style.display = 'none';
@@ -175,27 +165,26 @@ const closeModal = function (modal) {
 };
 
 closeModalBtn.addEventListener('click', () => closeModal(modal));
-
 closeGalleryBtn.addEventListener('click', () => closeModal(modalGallery));
 
-window.addEventListener('keydown', function (evt) {
-  if (evt.key == 'Escape') {
+window.addEventListener('keydown', (e) => {
+  if (e.key == 'Escape') {
     closeModal(modal);
     closeModal(modalGallery);
-  }
+  };
 });
 
-window.addEventListener('click', (evt) => {
-  if (evt.target === modal || evt.target === modalGallery) {
-    modal.style.display = 'none'
-    modalGallery.style.display = 'none'
-    document.body.style.overflowY = 'scroll';
+window.addEventListener('click', (e) => {
+  if (e.target === modal || e.target === modalGallery) {
+    modal.style.display = 'none';
+    modalGallery.style.display = 'none';
+    document.body.style.overflowY = 'scroll';;
   }
 });
 
 //// * Membership Tab ////
-tabsContainer.addEventListener('click', (evt) => {
-  const clicked = evt.target.closest('.memberships_tab');
+tabsContainer.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.memberships_tab');
   // Guard clause
   if (!clicked) return;
 
@@ -212,50 +201,46 @@ tabsContainer.addEventListener('click', (evt) => {
 });
 
 //// * Form ////
-nameInput.isValid = () => !!nameInput.value;
-emailInput.isValid = () => isValidEmail(emailInput.value);
-phoneInput.isValid = () => isValidPhone(phoneInput.value);
-addressInput.isValid = () => !!addressInput.value;
-townInput.isValid = () => !!townInput.value;
-postCodeInput.isValid = () => isValidPostCode(postCodeInput.value);
+// ? REVISIT ( LOOP THOUGH INPUTS ) SINGLE FUNC input validation T / F & toLowerCase()
 
-const inputFields = [nameInput, emailInput, phoneInput, , addressInput, townInput, postCodeInput];
+const validateEmail = () => {
+  const reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const isValidEmail = (email) => {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  if (form.email.length === 0 || !reEmail.test(form.email.value)) {
+    form.email.nextElementSibling.classList.remove("hide");
+  } else {
+    form.email.nextElementSibling.classList.add("hide");
+    return true
+  };
 };
 
-const isValidPhone = (phone) => {
-  const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-  return re.test(String(phone).toLowerCase());
+const validatePhone = () => {
+  const rePhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+  if (form.phone.length === 0 || !rePhone.test(form.phone.value)) {
+    form.phone.nextElementSibling.classList.remove("hide");
+  } else {
+    form.phone.nextElementSibling.classList.add("hide");
+    return true
+  };
 };
 
-const isValidPostCode = (code) => {
-  const re = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
-  return re.test(String(code).toLowerCase());
+const validatePostCode = () => {
+  const rePostCode = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
+
+  if (form.post_code.length === 0 || !rePostCode.test(form.post_code.value)) {
+    form.post_code.nextElementSibling.classList.remove("hide");
+  } else {
+    form.post_code.nextElementSibling.classList.add("hide");
+    return true
+  };
 };
 
-let shouldValidate = false;
-let isFormValid = false;
 
-const validateInputs = () => {
+// input.classList.add("invalid");
+// input.nextElementSibling.classList.remove("hide");
+// renderError('Please make sure all inputs are valid and filled in !')
 
-  if (!shouldValidate) return;
-
-  isFormValid = true;
-  inputFields.forEach((input) => {
-    input.classList.remove("invalid");
-    input.nextElementSibling.classList.add("hide");
-
-    if (!input.isValid()) {
-      input.classList.add("invalid");
-      isFormValid = false;
-      input.nextElementSibling.classList.remove("hide");
-      renderError('Please make sure all inputs are valid and filled in !')
-    };
-  });
-};
 
 const renderError = (errorMsg) => {
   formMessage.style.color = 'red';
@@ -266,22 +251,33 @@ const renderError = (errorMsg) => {
   formMessage.innerText = `${errorMsg}`;
 };
 
-form.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  shouldValidate = true;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  validateInputs();
+  const conditionsArr = [
+    validateEmail() === true,
+    validatePhone() === true,
+    validatePostCode() === true,
+  ];
 
-  if (isFormValid) {
-    const data = new FormData(evt.target);
+  console.log(conditionsArr)
 
-    fetch(evt.target.action, {
+  if (conditionsArr.includes(false)) {
+    renderError('Please make sure all inputs are valid and filled in !');
+  } else {
+
+    const data = new FormData(e.target);
+
+    fetch(e.target.action, {
       method: form.method,
       body: data,
       headers: {
         'Accept': 'application/json'
       }
     }).then(response => {
+      if (!response.ok) {
+        renderError(`Something went wrong. ${error}. Try again!`);
+      };
       formMessage.style.color = 'green';
       formMessage.style.fontSize = '1rem';
       formMessage.style.paddingBottom = '1rem';
@@ -294,6 +290,3 @@ form.addEventListener("submit", (evt) => {
     });
   };
 });
-
-inputFields.forEach((input) => input.addEventListener("input", validateInputs));
-
